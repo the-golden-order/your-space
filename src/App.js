@@ -2,7 +2,8 @@ import React from 'react';
 import Header from './Header';
 // import Main from './Main';
 import Footer from './Footer';
-import BestMusic from './BestMusic';
+import BestMusic from './YourspaceMain';
+import Login from './Login';
 import Profile from './Profile'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,6 +12,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { withAuth0 } from '@auth0/auth0-react';
+
 
 
 class App extends React.Component {
@@ -55,18 +58,16 @@ render() {
         /> 
         <Switch>
           <Route exact path="/">
-            {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
             {this.props.auth0.isAuthenticated
             ?
-            <BestMusic email={this.state.email}/>
+            <BestMusic email={this.state.email}/>  // NEEED TOOOO UUUUUPPPPDDDAAATTEEE
             :
-            <LoginButton
+            <Login
             userHandler={this.userHandler}
             emailHandler={this.emailHandler}
             />
             }
           </Route>
-          {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
           <Route exact path="/Profile">
             {this.props.auth0.isAuthenticated
             ?

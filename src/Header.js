@@ -1,38 +1,39 @@
-import React from "react";
+
+import React from 'react';
+import { Navbar, NavItem, Button, Container, NavDropdown, Nav } from 'react-bootstrap';
+import { Link } from "react-router-dom";
+import LogoutButton from './LogoutButton';
+import { withAuth0 } from '@auth0/auth0-react';
+
+
 import { Component } from "react";
-import { Navbar, Button, Container, NavDropdown, Nav } from "react-bootstrap";
+
+
 
 class Header extends React.Component {
 
   render() {
 
+    console.log(this.props);
     return (
-      <Navbar bg="light" expand="lg">
-        <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand>My Favorite Music</Navbar.Brand>
+        {this.props.auth0.isAuthenticated
+          ? (
+          <>
+        <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
+        <NavItem>
+          <Link to='/Profile' className='nav-link'>Profile</Link>
+        </NavItem>     
+          <LogoutButton onLogout={this.props.onLogout}/>
+          </>
+          )
+          : ''}
+        
       </Navbar>
     )
   }
+}
 
+export default withAuth0(Header);
 
-
-
-
-};
-
-export default Header
