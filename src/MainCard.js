@@ -6,10 +6,6 @@ import Button from "react-bootstrap/Button";
 //import Profile from "./Profile";
 //import { withAuth0 } from "@auth0/react-auth0";
 
-
-
-
-
 class MainCard extends React.Component {
   // constructor(props) {
   //   super(props);
