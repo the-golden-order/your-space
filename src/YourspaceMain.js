@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Button, Card, Component } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
+import {Profile} from "./Profile"
 
 let SERVER = process.env.REACT_APP_SERVER;
 
@@ -102,15 +103,15 @@ class Main extends React.Component {
 
     return (
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src="this.props.artWork" />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>{this.props.artistName}</Card.Title>
           <Card.Text>
             Some quick example text to build on the card title and make up the bulk of
             the card's content.
           </Card.Text>
           <Button variant="primary" onClick={this.showModal}>Details</Button>
-          <DetailsModal/>
+          <Profile artist={this.props.artistName} track={this.props.trackName} artWork={this.props.artWork} genre={this.props.genre} note={this.props.note}/>
         </Card.Body>
       </Card>
     )
