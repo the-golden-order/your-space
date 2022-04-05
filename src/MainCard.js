@@ -1,9 +1,13 @@
+import React from "React";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import { withAuth0 } from "@auth0/react-auth0";
 
 
 
 
-
-class DetailsModal extends React.Component {
+class MainCard extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
@@ -24,7 +28,7 @@ class DetailsModal extends React.Component {
           <Card.Text>
             {this.props.note}
           </Card.Text>
-          <Button variant="primary"><Link to="/Profile" className="nav-link">Details</Link></Button>
+          <Button variant="primary"><Link to="/Profile" className="nav-link">Add to Profile</Link></Button>
           <Profile artist={this.props.artistName} track={this.props.trackName} artWork={this.props.artWork} genre={this.props.genre} note={this.props.note}/>
         </Card.Body>
       </Card>
@@ -32,3 +36,6 @@ class DetailsModal extends React.Component {
   
   }
 }
+
+
+export default withAuth0(MainCard);

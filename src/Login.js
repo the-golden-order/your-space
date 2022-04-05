@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import LoginButton from './LoginButton';
+import { withAuth0 } from '@auth0/auth0-react'; // IS THIS USE OR WITH FOR AUTH0
 
 class Login extends React.Component {
   render() {
@@ -21,4 +22,4 @@ class Login extends React.Component {
   };
 };
 
-export default Login;
+export default withAuth0(Login); // SAME WITH RIGHT HERE

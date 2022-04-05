@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "react-bootstrap/Card"
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
@@ -7,20 +8,33 @@ const Profile = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
-
+  
   return (
     isAuthenticated && (
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-      </div>
+      <Card>
+        <Card.Img src={user.picture} alt={user.name} />
+        <Card.Body>
+
+        <Card.Text>{user.name}</Card.Text>
+        <Card.Text>{user.email}</Card.Text>
+
+        </Card.Body>
+      </Card>
     )
   );
 };
 
-
+constructor(props) {
+  super(props);
+  this.state= {
+    artistName: '',
+    trackName:'',
+    artWork: '',
+    genre: '',
+    note:'',
+  }
+};
 
 {/* <Button variant="primary" onClick={this.showModal}>Details</Button> */}
 
-export default Profile;
+export default useAuth0(Profile);
