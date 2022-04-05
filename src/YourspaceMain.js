@@ -1,9 +1,9 @@
 import axios from "axios";
 import React from "react";
-import { Button, Card, Component } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import {Profile} from "./Profile"
-import { Link } from 'react-router-dom';
+
 import MainCard from './MainCard'
 let SERVER = process.env.REACT_APP_SERVER;
 
@@ -126,7 +126,17 @@ class Main extends React.Component {
 
     return (
       <>
+      <Container>
+        <Profile />
+      </Container>
+
+      <Container>
+        <Profile />
+      </Container>
       
+      <Container>
+        <Profile />
+      </Container>
       </>
     )
 
