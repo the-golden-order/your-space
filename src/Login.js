@@ -22,4 +22,4 @@ class Login extends React.Component {
   };
 };
 
-export default withAuth0(Login); // SAME WITH RIGHT HERE
+export default withAuth0(Login); // withAuth0 SAME WITH RIGHT HERE

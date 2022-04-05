@@ -2,9 +2,9 @@ import axios from "axios";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
-import {Profile} from "./Profile"
-import MainCard from './MainCard'
+import Profile from "./Profile";
 import SearchBar from "./SearchBar";
+import MainCard from './MainCard'
 import Footer from './Footer'
 import Header from './Header'
 let SERVER = process.env.REACT_APP_SERVER;
@@ -21,10 +21,18 @@ class Main extends React.Component {
     }
   }
 
+  handleMusicInput = (e) => {
+    this.setState({
+      query: e,
+    });
+  }
+
   getItunesData = async (e) => {
     e.preventDefault();
     try{ 
-      let itunesData = await axios.get(`${SERVER}/itunes?term=${this.state.query}`);
+
+      let itunesData = await axios.get(`${SERVER}/itunes?term=${this.state.query}`);//TODO term= this.state.query
+
       this.setState({
         itunesAPI: itunesData.data
       });
@@ -47,7 +55,7 @@ class Main extends React.Component {
       const res = await this.props.auth0.getIdTokenClaims();
 
       const jwt = res.__raw;
-
+      console.log(jwt);
       // config object to make our call 
       const config = {
         method: 'get',
@@ -139,9 +147,10 @@ class Main extends React.Component {
       <Container>
         <Header/>
       </Container>
+     
 
       <Container>
-        <SearchBar> getItunesData={this.getItunesData} handleMusicSearch={this.handleMusicSearch}
+        <SearchBar> getItunesData={this.getItunesData} handleMusicInput={this.handleMusicInput}
         query={this.state.query}
         </SearchBar>
       </Container>

@@ -1,15 +1,17 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import './SearchBar.css'
+import { Button } from 'react-bootstrap';
 
 class SearchBar extends React.Component {
   render() {
     return (
       <Container className="search-bar">
         <form>
-          <label className="search-label">Pick a Song:</label>
-          <input type="text" onInput={(event) => { this.props.handleMusicSearch(event.target.value) }} placeholder="search for a song!"></input>
-          <button className="search-button" onClick={this.props.getItunesData}>Search for Music!</button>
+
+          <label className="search-label">Search an Artist: </label>
+          <input type="text" onInput={(event) => { this.props.handleMusicInput(event.target.value) }} placeholder="search for an Artist!"></input>
+          <Button className="search-button" onClick={this.props.getItunesData}>Music!</Button>
+
         </form>
       </Container>
     );

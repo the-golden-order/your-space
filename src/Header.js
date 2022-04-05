@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { Navbar, NavItem, Button, Container, NavDropdown, Nav } from 'react-bootstrap';
+import { Navbar, NavItem,  } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import LogoutButton from './LogoutButton';
 import { withAuth0 } from '@auth0/auth0-react';
 
-
-import { Component } from "react";
+// Button, Container, NavDropdown, Nav
+// import { Component } from "react";
 
 
 
