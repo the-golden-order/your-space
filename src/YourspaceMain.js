@@ -29,23 +29,23 @@ class Main extends React.Component {
 
   getItunesData = async (e) => {
     e.preventDefault();
-    try{ 
+    try {
 
       let itunesData = await axios.get(`${SERVER}/itunes?term=${this.state.query}`);//TODO term= this.state.query
 
       this.setState({
         itunesAPI: itunesData.data
       });
-    }catch (error) {
-        console.log('error updating', error.message);
+    } catch (error) {
+      console.log('error updating', error.message);
     }
   };
 
-  handleMusicSearch = (event) => {
-    this.setState({
-      query: event.target.value,
-    });
-  } 
+//  handleMusicInput = (event) => {
+//    this.setState({
+//      query: event.target.value,
+//    });
+//  }
 
 
   getMusic = async () => {
@@ -109,67 +109,66 @@ class Main extends React.Component {
       this.setState({
         music: updatedMusic
       })
-    }catch (error){
+    } catch (error) {
       console.log('error, doggy', error.response.data);
     }
     this.getMusic();
-    };
+  };
 
-    componentDidMount() {
-      this.getMusic();
-    }
+  componentDidMount() {
+    this.getMusic();
+  }
 
-    displayModal = () => {
-      this.setState({
-        showModal: true,
-      });
-    };
-  
-    hideModal = () => {
-      this.setState({
-        showModal: false
-      });
-    };
+  displayModal = () => {
+    this.setState({
+      showModal: true,
+    });
+  };
 
-    
+  hideModal = () => {
+    this.setState({
+      showModal: false
+    });
+  };
+
+
 
   render() {
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
         <MainCard
-        key={index}
-        query={query}/>
-        );
+          key={index}
+          query={query} />
+      );
     })
 
     return (
       <>
-      <Container>
-        <Header/>
-      </Container>
-     
+        <Container>
+          <Header />
+        </Container>
 
-      <Container>
-        <SearchBar> getItunesData={this.getItunesData} handleMusicInput={this.handleMusicInput}
-        query={this.state.query}
-        </SearchBar>
-      </Container>
 
-      <Container>
-        <main>
-          {allResults}
-        </main>
-      </Container>
+        <Container>
+          <SearchBar getItunesData={this.getItunesData} handleMusicInput={this.handleMusicInput} />
+  
+        </Container>
 
-      <Container>
-        <Profile/>
-      </Container>
+        <Container>
+          <main>
+            {allResults}
+          </main>
+        </Container>
 
-      <Container>
-        <Footer/>
-      </Container>
+        <Container>
+          <Profile />
+        </Container>
 
-      
+        <Container>
+          <Footer />
+        </Container>
+
+
       </>
     )
 
@@ -177,3 +176,6 @@ class Main extends React.Component {
 }
 
 export default withAuth0(Main)
+
+
+  //query={this.state.query}
