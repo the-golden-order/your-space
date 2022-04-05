@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import './Button.css'
+import './MainCard.css'
 // import { Link } from "react-router-dom";
 
 //import Profile from "./Profile";
@@ -37,14 +39,15 @@ class MainCard extends React.Component {
 
   render() {
     return (
-      <Card style={{ width: '18rem' }}>
+      <div className="cards">
+      <Card className="individual-card" style={{ width: '18rem' }}>
         {/* <Card.Img variant="top" src="{this.props.query.artWork}" /> */}
         <Card.Body>
           <Card.Title>{this.props.query.artistName}</Card.Title>
           <Card.Text>
             {this.props.query.note}
           </Card.Text>
-          <Button variant="primary" onClick={this.handleMusicLibrary}>Add To Profile</Button>
+          <Button className="rainbow-button" variant="primary" onClick={this.handleMusicLibrary}>Add To Profile</Button>
           <Card.Text>
             Artist: {this.props.query.artistName}
           </Card.Text>
@@ -63,6 +66,7 @@ class MainCard extends React.Component {
           </Card.Text>
         </Card.Body>
       </Card>
+      </div>
     )
 
   }

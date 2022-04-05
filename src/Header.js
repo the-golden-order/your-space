@@ -4,6 +4,7 @@ import { Navbar, NavItem,  } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import LogoutButton from './LogoutButton';
 import { withAuth0 } from '@auth0/auth0-react';
+import './Header.css';
 
 // Button, Container, NavDropdown, Nav
 // import { Component } from "react";
@@ -16,8 +17,8 @@ class Header extends React.Component {
 
     console.log(this.props);
     return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>My Favorite Music</Navbar.Brand>
+      <Navbar   className="head-nav" /* collapseOnSelect expand="lg" bg="dark" variant="dark"*/>
+        <Navbar.Brand className='head-title'>My Favorite Music</Navbar.Brand>
         {this.props.auth0.isAuthenticated
           ? (
           <>

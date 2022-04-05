@@ -8,9 +8,9 @@ class SearchBar extends React.Component {
       <Container className="search-bar">
         <form>
 
-          <label className="search-label">Search an Artist: </label>
-          <input type="text" onInput={(event) => { this.props.handleMusicInput(event.target.value) }} placeholder="search for an Artist!"></input>
-          <Button className="search-button" onClick={this.props.getItunesData}>Music!</Button>
+          <label className="search-label">Find a Song: </label>
+          <input type="text" onInput={(event) => { this.props.handleMusicInput(event.target.value) }} placeholder="Type Song Here!"></input>
+          <Button className="rainbow-button" onClick={this.props.getItunesData}>Get Music!</Button>
 
         </form>
       </Container>
