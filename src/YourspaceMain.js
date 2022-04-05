@@ -3,8 +3,10 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import {Profile} from "./Profile"
-
 import MainCard from './MainCard'
+import SearchBar from "./SearchBar";
+import Footer from './Footer'
+import Header from './Header'
 let SERVER = process.env.REACT_APP_SERVER;
 
 class Main extends React.Component {
@@ -22,7 +24,7 @@ class Main extends React.Component {
   getItunesData = async (e) => {
     e.preventDefault();
     try{ 
-      let itunesData = await axios.get(`${SERVER}/itunes?term=radiohead`);//TODO term= this.state.query
+      let itunesData = await axios.get(`${SERVER}/itunes?term=${this.state.query}`);
       this.setState({
         itunesAPI: itunesData.data
       });
@@ -30,6 +32,12 @@ class Main extends React.Component {
         console.log('error updating', error.message);
     }
   };
+
+  handleMusicSearch = (event) => {
+    this.setState({
+      query: event.target.value,
+    });
+  } 
 
 
   getMusic = async () => {
@@ -115,6 +123,8 @@ class Main extends React.Component {
       });
     };
 
+    
+
   render() {
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
@@ -127,16 +137,30 @@ class Main extends React.Component {
     return (
       <>
       <Container>
-        <Profile />
+        <Header/>
       </Container>
 
       <Container>
-        <Profile />
+        <SearchBar> getItunesData={this.getItunesData} handleMusicSearch={this.handleMusicSearch}
+        query={this.state.query}
+        </SearchBar>
       </Container>
-      
+
       <Container>
-        <Profile />
+        <main>
+          {allResults}
+        </main>
       </Container>
+
+      <Container>
+        <Profile/>
+      </Container>
+
+      <Container>
+        <Footer/>
+      </Container>
+
+      
       </>
     )
 

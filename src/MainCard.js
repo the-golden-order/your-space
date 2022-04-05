@@ -3,9 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { withAuth0 } from "@auth0/react-auth0";
-
-
-
+import Profile from "./Profile";
 
 class MainCard extends React.Component {
   constructor(props) {
@@ -18,6 +16,7 @@ class MainCard extends React.Component {
       note:'',
     }
   };
+  
   render() {
 
     return (
