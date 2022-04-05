@@ -3,7 +3,8 @@ import React from "react";
 import { Button, Card, Component } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import {Profile} from "./Profile"
-
+import { Link } from 'react-router-dom';
+import MainCard from './MainCard'
 let SERVER = process.env.REACT_APP_SERVER;
 
 class Main extends React.Component {
@@ -12,9 +13,24 @@ class Main extends React.Component {
     super(props);
     this.state = {
       music: [],
+      itunesAPI: [],
+      query: '',
       showModal: false
     }
   }
+
+  getItunesData = async (e) => {
+    e.preventDefault();
+    try{ 
+      let itunesData = await axios.get(`${SERVER}/itunes?term=radiohead`);//TODO term= this.state.query
+      this.setState({
+        itunesAPI: itunesData.data
+      });
+    }catch (error) {
+        console.log('error updating', error.message);
+    }
+  };
+
 
   getMusic = async () => {
     // JSON Web Token = JWT (pronounced JOT)
@@ -100,20 +116,18 @@ class Main extends React.Component {
     };
 
   render() {
+    let allResults = this.state.itunesAPI.map((query, index) => {
+      return (
+        <MainCard
+        key={index}
+        query={query}/>
+        );
+    })
 
     return (
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="this.props.artWork" />
-        <Card.Body>
-          <Card.Title>{this.props.artistName}</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
-          </Card.Text>
-          <Button variant="primary" onClick={this.showModal}>Details</Button>
-          <Profile artist={this.props.artistName} track={this.props.trackName} artWork={this.props.artWork} genre={this.props.genre} note={this.props.note}/>
-        </Card.Body>
-      </Card>
+      <>
+      
+      </>
     )
 
   }
