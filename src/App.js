@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-// import Main from './Main';
+// // import Main from './Main';
 import Footer from './Footer';
 import BestMusic from './YourspaceMain';
 import Login from './Login';
@@ -47,43 +47,50 @@ class App extends React.Component {
       user: '',
     })
   }
-
-render() {
-  return (
-    <>
-      <Router>
-        <Header 
-          user={this.state.user} 
-          onLogout={this.logoutHandler}
-        /> 
-        <Switch>
-          <Route exact path="/">
-            {this.props.auth0.isAuthenticated
-            ?
-            <BestMusic email={this.state.email}/>  // NEEED TOOOO UUUUUPPPPDDDAAATTEEE
-            :
-            <Login
-            userHandler={this.userHandler}
-            emailHandler={this.emailHandler}
-            />
-            }
-          </Route>
-          <Route exact path="/Profile">
-            {this.props.auth0.isAuthenticated
-            ?
-            <Profile
+//  render (){
+//    return(
+//      <>
+//      <Footer />
+//      </>
+//    )
+//  }
+  render() {
+    return (
+      <>
+        <Router>
+          <Header
             user={this.state.user}
-            email={this.state.email}
-            />
-            :
-            null
-            }
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
-    </>
-  )
+            onLogout={this.logoutHandler}
+          />
+          <Switch>
+            <Route exact path="/">
+              {this.props.auth0.isAuthenticated
+                ?
+                <BestMusic email={this.state.email} />  // NEEED TOOOO UUUUUPPPPDDDAAATTEEE
+                :
+                <Login
+                  userHandler={this.userHandler}
+                  emailHandler={this.emailHandler}
+                />
+              }
+            </Route>
+            <Route exact path="/Profile">
+              {this.props.auth0.isAuthenticated
+                ?
+                <Profile
+                  user={this.state.user}
+                  email={this.state.email}
+                />
+                :
+                null
+              }
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </>
+    )
+  }
 }
-}
+
 export default withAuth0(App);

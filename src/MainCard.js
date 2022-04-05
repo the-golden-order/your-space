@@ -1,8 +1,9 @@
-import React from "React";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { withAuth0 } from "@auth0/react-auth0";
+import Profile from "./Profile";
+//import { withAuth0 } from "@auth0/react-auth0";
 
 
 
@@ -38,4 +39,5 @@ class MainCard extends React.Component {
 }
 
 
-export default withAuth0(MainCard);
+export default MainCard;
+//withAuth0

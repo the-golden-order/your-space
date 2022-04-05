@@ -37,6 +37,6 @@ return (
 // };
 
 
-{/* <Button variant="primary" onClick={this.showModal}>Details</Button> */}
+// {/* <Button variant="primary" onClick={this.showModal}>Details</Button> */}
 
 export default Profile;
