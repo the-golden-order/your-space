@@ -3,15 +3,15 @@ import Card from "react-bootstrap/Card"
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+const { user, isAuthenticated, isLoading } = useAuth0();
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-  
-  return (
-    isAuthenticated && (
-      <Card>
+if (isLoading) {
+  return <div>Loading ...</div>;
+}
+
+return (
+  isAuthenticated && (
+    <Card>
         <Card.Img src={user.picture} alt={user.name} />
         <Card.Body>
 
@@ -24,17 +24,19 @@ const Profile = () => {
   );
 };
 
-constructor(props) {
-  super(props);
-  this.state= {
-    artistName: '',
-    trackName:'',
-    artWork: '',
-    genre: '',
-    note:'',
-  }
-};
+// constructor(props) {
+//   super(props);
+//   this.state= {
+//     artistName: '',
+//     trackName:'',
+//     artWork: '',
+//     genre: '',
+//     note:'',
+//   };
+  
+// };
+
 
 {/* <Button variant="primary" onClick={this.showModal}>Details</Button> */}
 
-export default useAuth0(Profile);
+export default Profile;
