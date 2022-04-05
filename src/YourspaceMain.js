@@ -5,6 +5,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 // import Profile from "./Profile";
 import SearchBar from "./SearchBar";
 import MainCard from './MainCard'
+import './Button.css'
 // import Footer from './Footer'
 // import Header from './Header'
 let SERVER = process.env.REACT_APP_SERVER;
