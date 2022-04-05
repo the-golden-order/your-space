@@ -5,8 +5,8 @@ import { withAuth0 } from "@auth0/auth0-react";
 import Profile from "./Profile";
 import SearchBar from "./SearchBar";
 import MainCard from './MainCard'
-import Footer from './Footer'
-import Header from './Header'
+// import Footer from './Footer'
+// import Header from './Header'
 let SERVER = process.env.REACT_APP_SERVER;
 
 class Main extends React.Component {
@@ -17,7 +17,8 @@ class Main extends React.Component {
       music: [],
       itunesAPI: [],
       query: '',
-      showModal: false
+      showModal: false,
+      auth0Email: this.props.auth0.user.email
     }
   }
 
@@ -27,8 +28,8 @@ class Main extends React.Component {
     });
   }
 
-  getItunesData = async (e) => {
-    e.preventDefault();
+  getItunesData = async () => {
+    // e.preventDefault();
     try {
 
       let itunesData = await axios.get(`${SERVER}/itunes?term=${this.state.query}`);//TODO term= this.state.query
@@ -79,7 +80,7 @@ class Main extends React.Component {
         music: [...this.state.music, results.data]
       });
     } catch (error) {
-      console.error('error', error.response.data);
+      console.error('error', error.response);
     }
   }
 
@@ -134,29 +135,34 @@ class Main extends React.Component {
 
 
   render() {
+    console.log(this.props.auth0.user);
+    console.log(this.props.auth0.user.email);
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
         <MainCard
           key={index}
-          query={query} />
+          query={query} 
+          postMusic={this.postMusic}
+          auth0Email={this.props.auth0.user.email} />
       );
     })
-
+    console.log('Query: ', this.state.query);
     return (
       <>
-        <Container>
+        {/* <Container>
           <Header />
-        </Container>
+        </Container> */}
 
 
         <Container>
           <SearchBar getItunesData={this.getItunesData} handleMusicInput={this.handleMusicInput} />
-  
+          
         </Container>
 
         <Container>
           <main>
             {allResults}
+            <p> Some Text inside there too {this.props.auth0.user.email}</p>
           </main>
         </Container>
 
@@ -164,9 +170,9 @@ class Main extends React.Component {
           <Profile />
         </Container>
 
-        <Container>
+        {/* <Container>
           <Footer />
-        </Container>
+        </Container> */}
 
 
       </>
