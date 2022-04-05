@@ -19,4 +19,8 @@ const Profile = () => {
   );
 };
 
+
+
+{/* <Button variant="primary" onClick={this.showModal}>Details</Button> */}
+
 export default Profile;
