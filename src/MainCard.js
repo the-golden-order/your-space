@@ -3,22 +3,10 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import './Button.css'
 import './MainCard.css'
-// import { Link } from "react-router-dom";
 
-//import Profile from "./Profile";
-//import { withAuth0 } from "@auth0/react-auth0";
 
 class MainCard extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state= {
-  //     artistName: '',
-  //     trackName:'',
-  //     artWork: '',
-  //     genre: '',
-  //     note:'',
-  //   }
-  // };
+
 
   handleMusicLibrary = (e) => {
     e.preventDefault();
@@ -37,7 +25,6 @@ class MainCard extends React.Component {
     return (
       <div className="cards">
       <Card className="individual-card" style={{ width: '18rem' }}>
-        {/* <Card.Img variant="top" src="{this.props.query.artWork}" /> */}
         <Card.Body>
           <Card.Title>{this.props.query.artistName}</Card.Title>
           <Card.Text>
@@ -70,4 +57,3 @@ class MainCard extends React.Component {
 
 
 export default MainCard;
-//useAuth0
