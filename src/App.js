@@ -12,6 +12,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import OurTeam from "./OurTeam"
 import { withAuth0 } from '@auth0/auth0-react';
 
 
@@ -84,6 +85,9 @@ class App extends React.Component {
                 :
                 null
               }
+            </Route>
+            <Route exact path="/OurTeam">
+              <OurTeam/>
             </Route>
           </Switch>
           <Footer />
