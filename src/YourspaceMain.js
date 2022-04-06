@@ -2,9 +2,11 @@ import axios from "axios";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
-import Profile from "./Profile";
+// import Profile from "./Profile";
 import SearchBar from "./SearchBar";
 import MainCard from './MainCard'
+import OurTeam from "./OurTeam";
+import './Button.css'
 // import Footer from './Footer'
 // import Header from './Header'
 let SERVER = process.env.REACT_APP_SERVER;
@@ -149,32 +151,17 @@ class Main extends React.Component {
     console.log('Query: ', this.state.query);
     return (
       <>
-        {/* <Container>
-          <Header />
-        </Container> */}
-
-
         <Container>
-          <SearchBar getItunesData={this.getItunesData} handleMusicInput={this.handleMusicInput} />
-          
+          <SearchBar getItunesData={this.getItunesData} handleMusicInput={this.handleMusicInput} />  
         </Container>
 
         <Container>
           <main>
             {allResults}
-            <p> Some Text inside there too {this.props.auth0.user.email}</p>
+            
           </main>
         </Container>
-
-        <Container>
-          <Profile />
-        </Container>
-
-        {/* <Container>
-          <Footer />
-        </Container> */}
-
-
+       <OurTeam/>
       </>
     )
 

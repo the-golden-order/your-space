@@ -1,0 +1,12 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+  float: left;
+  height: 50vh;
+  margin: 20px;
+  box-shadow: 0.7vw 0.3vw 0.3vw #6d0359;
+  border-radius: 20px;
+}
+
