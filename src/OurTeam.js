@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel, CarouselItem, Button } from 'react-bootstrap';
 import "./OurTeam.css";
 import Eden from './OurTeamPics/picture_for_codle_aboutus.png';
+// import Marcus from './OurTeamPics/Marcus.jpeg';
 
 class OurTeam extends React.Component {
   render(){
@@ -50,6 +51,10 @@ class OurTeam extends React.Component {
             <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!">LinkedIn Profile</Button> 
           </CarouselItem>
           <CarouselItem>
+          {/* <img 
+          src= {Marcus} 
+          alt="Marcus and Denise below the Materhorne, CH" 
+          /> */}
             <h2> Marcus Hartwig </h2>
             <h3> Full-Stack Software Developer </h3>
             <p>Hey there! I'm Marcus Hartwig and I'm happy you're here. I am both a husband and father, and my family is currently based in the Seattle, WA area. I have extensive leadership experiance particularly in the context in deep wilderness areas. I love traveling and experiancing all that this world has to offer. I have also gotten to visit all 50 States and I am often traveling between Europe and Asia.</p>
