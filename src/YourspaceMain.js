@@ -2,14 +2,11 @@ import axios from "axios";
 import React from "react";
 import { Container, Card } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
-// import Profile from "./Profile";
 import SearchBar from "./SearchBar";
-import MainCard from './MainCard'
-import OurTeam from "./OurTeam";
+import MainCard from './MainCard';
+// import GameCard from './GameCard';
 import './Button.css'
 import UserProfile from "./UserProfile";
-// import Footer from './Footer'
-// import Header from './Header'
 let SERVER = process.env.REACT_APP_SERVER;
 
 class Main extends React.Component {
@@ -20,7 +17,12 @@ class Main extends React.Component {
       music: [],
       itunesAPI: [],
       query: '',
+      // games: [],
+      // steamAPI: [],
+      // gameQuery: '',
+
       dbSongs:[],
+
       showModal: false,
       auth0Email: this.props.auth0.user.email
     }
@@ -32,12 +34,83 @@ class Main extends React.Component {
     });
   }
 
-  getItunesData = async () => {
-    // e.preventDefault();
+// ############### FOR GAME ############
+/*  getSteamData = async () => {
     try {
+      let steamData = await axios.get(`${SERVER}/steam?term=${this.state.gameQuery}`);
+      this.setState({
+        steamAPI: steamData.data
+      });
+    } catch (error) {
+      console.log('error updating', error.message);
+    }
+  };
 
-      let itunesData = await axios.get(`${SERVER}/itunes?term=${this.state.query}`);//TODO term= this.state.query
+  getGame = async () => {
+    if (this.props.auth0.isAuthenticated) {
+      const res = await this.props.auth0.getIdTokenClaims();
+      const jwt = res.__raw;
+      console.log(jwt); 
+      const config = {
+        method: 'get',
+        baseURL: process.env.REACT_APP_SERVER,
+        url: '/music',
+        headers: { "Authorization": `Bearer ${jwt}` }
+      };
+      const musicResults = await axios(config);
+      console.log(musicResults.data);
+      this.setState({
+        music: musicResults.data
+      })
+    }
+  }
+  postGame = async (newGame) => {
+    try {
+      let results = await axios.post(`${SERVER}/game`, newGame);
+      this.setState({
+        games: [...this.state.games, results.data]
+      });
+    } catch (error) {
+      console.error('error', error.response);
+    }
+  }
 
+  updateGame = async (updatedEntry) => {
+    try {
+      let url = `${SERVER}/game/${updatedEntry._id}`;
+      let updatedGame = await axios.put(url, updatedEntry);
+      console.log(updatedEntry);
+      let updatedGameData = this.state.games.map(currentGame => {
+        return currentGame._id === updatedEntry._id ?
+          updatedGame.data :
+          currentGame;
+      });
+      this.setState({
+        games: updatedGameData
+      });
+    } catch (error) {
+      console.log('error updating', error.message);
+    }
+  };
+
+  deleteGame = async (id) => {
+    try {
+      let url = `${SERVER}/game/${id}`;
+      await axios.delete(url);
+      let updatedGame = this.state.games.filter(Game => Game._id !== id);
+      this.setState({
+        games: updatedGame
+      })
+    } catch (error) {
+      console.log('error, doggy', error.response.data);
+    }
+    this.getGame();
+  }; */
+
+// ############### FOR MUSIC ############
+  getItunesData = async () => {
+    try {
+      let itunesData = await axios.get(`${SERVER}/itunes?term=${this.state.query}`);
       this.setState({
         itunesAPI: itunesData.data
       });
@@ -46,22 +119,12 @@ class Main extends React.Component {
     }
   };
 
-//  handleMusicInput = (event) => {
-//    this.setState({
-//      query: event.target.value,
-//    });
-//  }
-
 
   getMusic = async () => {
-    // JSON Web Token = JWT (pronounced JOT)
     if (this.props.auth0.isAuthenticated) {
-      // get token:
       const res = await this.props.auth0.getIdTokenClaims();
-
       const jwt = res.__raw;
-      console.log(jwt);
-      // config object to make our call 
+      console.log(jwt); 
       const config = {
         method: 'get',
         baseURL: process.env.REACT_APP_SERVER,
@@ -69,7 +132,6 @@ class Main extends React.Component {
         headers: { "Authorization": `Bearer ${jwt}` }
       };
       const musicResults = await axios(config);
-
       console.log(musicResults.data);
       this.setState({
         music: musicResults.data
@@ -126,6 +188,11 @@ class Main extends React.Component {
   };
 
 
+  componentDidMount() {
+    console.log('did mount');
+    this.getMusic();
+/*    this.getGame(); */
+  }
 
   displayModal = () => {
     this.setState({
@@ -142,9 +209,11 @@ class Main extends React.Component {
 
 
   render() {
-    // console.log(this.props.auth0.user);
-    // console.log(this.props.auth0.user.email);
-    console.log(this.state.music);
+
+    console.log(this.props.auth0.user);
+    console.log(this.props.auth0.user.email);
+    console.log('Music: ', this.state.music);
+
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
         <MainCard
@@ -154,6 +223,17 @@ class Main extends React.Component {
           auth0Email={this.props.auth0.user.email}/>
       );
     })
+
+
+/*    let gameResults = this.state.steamAPI.map((query, index)=>{
+      return (
+        <GameCard
+          key={index}
+          query={query}
+          postGame={this.postGame}
+          auth0Email={this.props.auth0.user.email} />
+      );
+    }) */
 
 
     // let addedSongs = this.state.music.map((dbSongs, idx) => {
@@ -169,11 +249,16 @@ class Main extends React.Component {
 
     //   );
     // })
+
     console.log('Query: ', this.state.query);
     return (
       <>
         <Container>
-          <SearchBar getItunesData={this.getItunesData} handleMusicInput={this.handleMusicInput} />  
+          <SearchBar 
+          getItunesData={this.getItunesData}
+          handleMusicInput={this.handleMusicInput} 
+          // getSteamData={this.getSteamData}
+          />  
         </Container>
 
         <Container>
@@ -182,12 +267,17 @@ class Main extends React.Component {
           </main>
         </Container>
 
+
+
         <UserProfile music={this.state.music}/>
-       <OurTeam/>
+
+
       </>
     )
 
   }
 }
 
+
 export default withAuth0(Main)
+
