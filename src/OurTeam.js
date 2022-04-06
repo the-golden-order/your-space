@@ -53,7 +53,7 @@ class OurTeam extends React.Component {
           <CarouselItem>
           <img 
           src= {Marcus} 
-          alt="Marcus and Denise below the Materhorne, CH" 
+          alt="Marcus and Denise below the Materhorne, CH." 
           />
             <h2> Marcus Hartwig </h2>
             <h3> Full-Stack Software Developer </h3>
