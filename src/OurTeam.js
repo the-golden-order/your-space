@@ -52,7 +52,7 @@ class OurTeam extends React.Component {
           <CarouselItem>
             <h2> Marcus Hartwig </h2>
             <h3> Full-Stack Software Developer </h3>
-            <p>Youll update this later</p>
+            <p>Hey there! I'm Marcus Hartwig and I'm happy you're here. I am both a husband and father, and my family is currently based in the Seattle, WA area. I have extensive leadership experiance particularly in the context in deep wilderness areas. I love traveling and experiancing all that this world has to offer. I have also gotten to visit all 50 States and I am often traveling between Europe and Asia.</p>
             <Button className="carousel-button" href="https://github.com/UPDATE ME!!!!!!!!!!!!">GitHub Profile</Button>
             <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!" >LinkedIn Profile</Button> 
           </CarouselItem> 
