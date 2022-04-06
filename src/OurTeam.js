@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel, CarouselItem, Button } from 'react-bootstrap';
 import "./OurTeam.css";
 import Eden from './OurTeamPics/picture_for_codle_aboutus.png';
+import Ryan from './OurTeamPics/me.jpeg'
 
 class OurTeam extends React.Component {
   render(){
@@ -28,8 +29,7 @@ class OurTeam extends React.Component {
             <h3> Full-Stack Software Developer </h3>
             <p> Greeting my fellow human, Glad to see ya here! My name is Ryan and I'm a new and excited software developer! I personally love to play and stream video games, as well as spending a lot of time playing my guitar.One of my favorite outdoor activities is Disc Golf, such a great sport and a great hike all in one!</p>
             <img
-            className="d-block w-100 h-50"
-            src="../img/OurTeamPics/me.jpeg"
+            src={Ryan}
             alt="Ryan French Pose 1"
             />
             <Button className="carousel-button" href="https://github.com/RyanLMcMillan">GitHub Profile</Button>
@@ -39,22 +39,34 @@ class OurTeam extends React.Component {
             <h2> Thomas Basham </h2>
             <h3> Full-Stack Software Developer </h3>
             <p>Youll update this later</p>
+            <img
+            src=""
+            alt=""
+            />
             <Button className="carousel-button" href="https://github.com/UPDATE ME!!!!!!!!!!!!">GitHub Profile</Button>
-            <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!" >LinkedIn Profile</Button> 
+            <Button className="carousel-button" href="https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!" >LinkedIn Profile</Button> 
           </CarouselItem>
           <CarouselItem>
             <h2> Roger Wells </h2>
             <h3> Full-Stack Software Developer </h3>
             <p>Youll update this later</p>
+            <img
+            src=""
+            alt=""
+            />
             <Button className="carousel-button" href="https://github.com/UPDATE ME!!!!!!!!!!!!">GitHub Profile</Button>
-            <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!">LinkedIn Profile</Button> 
+            <Button className="carousel-button" href="https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!">LinkedIn Profile</Button> 
           </CarouselItem>
           <CarouselItem>
             <h2> Marcus Hartwig </h2>
             <h3> Full-Stack Software Developer </h3>
             <p>Youll update this later</p>
+            <img
+            src=""
+            alt=""
+            />
             <Button className="carousel-button" href="https://github.com/UPDATE ME!!!!!!!!!!!!">GitHub Profile</Button>
-            <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!" >LinkedIn Profile</Button> 
+            <Button className="carousel-button" href="https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!" >LinkedIn Profile</Button> 
           </CarouselItem> 
       </Carousel>
       </>
