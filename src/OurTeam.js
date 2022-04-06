@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { Carousel, CarouselItem, Button } from 'react-bootstrap';
 import "./OurTeam.css";
+import Eden from './OurTeamPics/picture_for_codle_aboutus.png';
 
 class OurTeam extends React.Component {
   render(){
@@ -16,8 +17,7 @@ class OurTeam extends React.Component {
           <h3> Full-Stack Software Developer</h3>
           <p> Hello! Excited to have you here! I'm Eden, and I'm just a Baby Software Developer, and a trained Virology Research Scientist. I love video games and art of all sorts, including but not limited to drawing, cooking, and crafting. I'm also always interested in trying new activities, some of my favorites that I've tried are skateboarding, rock climbing and aerial yoga!  Finally I think a large part of myself is my love for animals, I have two cats and I'm always eager to meet and make new animal friends. I hope you enjoyed our CODLE program!</p>
           <img 
-          className="d-block w-100 h-50"
-          src= "../img/OurTeamPics/picture_for_codle_aboutus.png" 
+          src= {Eden} 
           alt="Eden and a Llama" 
           />
 
