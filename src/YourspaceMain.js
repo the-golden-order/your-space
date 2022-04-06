@@ -1,12 +1,13 @@
 import axios from "axios";
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 // import Profile from "./Profile";
 import SearchBar from "./SearchBar";
 import MainCard from './MainCard'
 import OurTeam from "./OurTeam";
 import './Button.css'
+import UserProfile from "./UserProfile";
 // import Footer from './Footer'
 // import Header from './Header'
 let SERVER = process.env.REACT_APP_SERVER;
@@ -19,6 +20,7 @@ class Main extends React.Component {
       music: [],
       itunesAPI: [],
       query: '',
+      dbSongs:[],
       showModal: false,
       auth0Email: this.props.auth0.user.email
     }
@@ -72,7 +74,12 @@ class Main extends React.Component {
       this.setState({
         music: musicResults.data
       })
+      
     }
+  }
+  componentDidMount() {
+    this.getMusic();
+    console.log(this.state.music);
   }
 
   postMusic = async (newMusic) => {
@@ -97,7 +104,7 @@ class Main extends React.Component {
           currentMusic;
       });
       this.setState({
-        music: updatedMusicData
+        x: updatedMusicData
       });
     } catch (error) {
       console.log('error updating', error.message);
@@ -118,9 +125,7 @@ class Main extends React.Component {
     this.getMusic();
   };
 
-  componentDidMount() {
-    this.getMusic();
-  }
+
 
   displayModal = () => {
     this.setState({
@@ -137,17 +142,33 @@ class Main extends React.Component {
 
 
   render() {
-    console.log(this.props.auth0.user);
-    console.log(this.props.auth0.user.email);
+    // console.log(this.props.auth0.user);
+    // console.log(this.props.auth0.user.email);
+    console.log(this.state.music);
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
         <MainCard
           key={index}
           query={query} 
           postMusic={this.postMusic}
-          auth0Email={this.props.auth0.user.email} />
+          auth0Email={this.props.auth0.user.email}/>
       );
     })
+
+
+    // let addedSongs = this.state.music.map((dbSongs, idx) => {
+    //   return ( 
+    //   // <Container key={idx}>
+
+    //   // </Container>
+    //   <ul key={idx}>
+    //     <li>{dbSongs.artistName}</li>
+    //   </ul>
+
+
+
+    //   );
+    // })
     console.log('Query: ', this.state.query);
     return (
       <>
@@ -157,10 +178,11 @@ class Main extends React.Component {
 
         <Container>
           <main>
-            {allResults}
-            
+            {allResults}            
           </main>
         </Container>
+
+        <UserProfile music={this.state.music}/>
        <OurTeam/>
       </>
     )
@@ -169,6 +191,3 @@ class Main extends React.Component {
 }
 
 export default withAuth0(Main)
-
-
-  //query={this.state.query}
