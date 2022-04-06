@@ -5,6 +5,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 // import Profile from "./Profile";
 import SearchBar from "./SearchBar";
 import MainCard from './MainCard'
+import OurTeam from "./OurTeam";
 import './Button.css'
 // import Footer from './Footer'
 // import Header from './Header'
@@ -160,6 +161,7 @@ class Main extends React.Component {
             
           </main>
         </Container>
+       <OurTeam/>
       </>
     )
 

@@ -25,7 +25,10 @@ class Header extends React.Component {
         <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
         <NavItem>
           <Link to='/Profile' className='nav-link'>Profile</Link>
-        </NavItem>     
+        </NavItem>
+        <NavItem>
+        <Link to='/OurTeam' className='nav-link'>Our Team</Link>
+        </NavItem>      
           <LogoutButton onLogout={this.props.onLogout}/>
           </>
           )

@@ -1,15 +1,23 @@
-.search-bar {
-  display: flex;
+h2 {
   justify-content: center;
-  border: 3px double #081C15;
-  padding: 10px;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background: linear-gradient(#FBF8CC, #F1C0E8, #90DBF4);
 }
 
-.rainbow-button {
+h3 {
+  justify-content: center;
+}
+
+p{
+  justify-content: center;
+}
+
+img {
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+
+.carousel-button {
   width: .2rem .1vw;
   border: none;
   outline: none;
@@ -25,7 +33,7 @@
   margin-top: 10px;
 }
 
-.rainbow-button:before {
+.carousel-button:before {
   content: '';
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
@@ -44,18 +52,18 @@
 }
 
 
-.rainbow-button:active{
+.carousel-button:active{
   color: #000;
 }
 
-.rainbow-button:active:after{
+.carousel-button:active:after{
   background: transparent;
 }
-.rainbow-button:hover:before{
+.carousel-button:hover:before{
   opacity: 1;
 }
 
-.rainbow-button:after{
+.carousel-button:after{
   z-index: -1;
   content: '';
   position: absolute;
