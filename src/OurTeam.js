@@ -18,13 +18,14 @@ class OurTeam extends React.Component {
           <h2> Eden Brekke </h2>
           <h3> Full-Stack Software Developer</h3>
           <p> Hello! Excited to have you here! I'm Eden, and I'm just a Baby Software Developer, and a trained Virology Research Scientist. I love video games and art of all sorts, including but not limited to drawing, cooking, and crafting. I'm also always interested in trying new activities, some of my favorites that I've tried are skateboarding, rock climbing and aerial yoga!  Finally I think a large part of myself is my love for animals, I have two cats and I'm always eager to meet and make new animal friends. I hope you enjoyed Your Space!</p>
+          <div className="carousel-div">
           <img 
           src= {Eden} 
           alt="Eden and a Llama" 
           />
           <Button className="carousel-button" href="https://github.com/eden-brekke">GitHub Profile</Button>
           <Button className="carousel-button" href="https://www.linkedin.com/in/eden-brekke/" >LinkedIn Profile</Button>
-
+          </div>
           </CarouselItem>
           <CarouselItem>
             <h2> Ryan McMillan </h2>
