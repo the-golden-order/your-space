@@ -12,11 +12,18 @@ class UserProfile extends React.Component {
     this.state = {
       music: [],
       showModal: false,
+      deleteMusic: false,
       inputFieldValue: '',
       currentCardObj: {}
     }
   }
 
+ deleteMusicForm = () => {
+    this.setState({
+      deleteMusic: true
+    })
+  }
+ 
   getMusic = async () => {
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
@@ -85,12 +92,11 @@ class UserProfile extends React.Component {
 
   deleteMusic = async (id) => {
     try {
-
-      let url = `${SERVER}/music/${id}`;
-      await axios.delete(url);
-      let updatedMusic = this.state.music.filter(Music => Music._id !== id);
-      this.setState({
-        music: updatedMusic
+      //let url = `${SERVER}/music/${id}`;
+      await axios.delete(`${SERVER}/music/${id}`);
+      let deletEDMusic = this.state.music.filter(Music => Music._id !== id);
+       this.setState({
+        music: deletEDMusic
       })
     } catch (error) {
       console.log('error, doggy', error.response.data);
@@ -123,7 +129,6 @@ class UserProfile extends React.Component {
     let addedSongs = this.state.music.map((query) => {
 
       return (
-
         <div className="cards" key={query._id}>
           <Card className="individual-card" style={{ width: '18rem' }}>
             {/* <Card.Img variant="top" src="{this.state.query.artWork}" /> */}
@@ -149,11 +154,10 @@ class UserProfile extends React.Component {
                 Personal Note: {query.note}
               </Card.Text>
               <Button className="rainbow-button" variant="primary" onClick={() => this.displayModal(query)}>Comments</Button>
-              {/* <Button className="rainbow-button" variant="primary" onClick={this.deleteMusic(this.id)}>Delete</Button> */}
+              <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(this.deleteMusic._id)}
             </Card.Body>
           </Card>
         </div>
-
       );
     })
     return (

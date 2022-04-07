@@ -1,14 +1,25 @@
-import { Component } from 'react';
+import React from 'react';
+// import { Component } from 'react';
 import { Button } from 'react-bootstrap';
+// import { Container, Form } from 'react-bootstrap/Container';
 
-class Deletebutton extends Component {
+class Deletebutton extends React.Component {
+  deleteMusicFuncion = (event) => {
+    event.prevenDefault();
+    let deleteMusic = {
+      _id: event.target._id.value,
+    }
+    this.props.deleteMusicS(deleteMusic)
+    this.props.onHide();
+  }
   render() {
     return (
       <>
-        <Button onClick={() => this.props.deletebook(this.props._id)}>Delete This</Button>
+        <Button onClick={this.deleteMusicFuncion}>Delete This</Button>
       </>
     );
   }
 }
+
 
 export default Deletebutton;
