@@ -63,6 +63,7 @@ class UserProfile extends React.Component {
 
   handleUpdate = (e) => {
     e.preventDefault();
+
     if (this.state.inputFieldValue) {
       
      let updatedCardObject = {
@@ -71,6 +72,7 @@ class UserProfile extends React.Component {
         genre: this.state.currentCardObj.genre,
         note: this.state.inputFieldValue,
         email: this.state.currentCardObj.email,
+        previewUrl: this.state.currentCardObj.previewUrl,
         _id: this.state.currentCardObj._id,
         __v: this.state.currentCardObj.__v
       }
@@ -78,6 +80,7 @@ class UserProfile extends React.Component {
       this.updateMusic(updatedCardObject);
       this.hideModal();
     }   
+
   }
 
   deleteMusic = async (id) => {
@@ -120,6 +123,7 @@ class UserProfile extends React.Component {
     let addedSongs = this.state.music.map((query) => {
 
       return (
+
         <div className="cards" key={query._id}>
           <Card className="individual-card" style={{ width: '18rem' }}>
             {/* <Card.Img variant="top" src="{this.state.query.artWork}" /> */}
@@ -149,6 +153,7 @@ class UserProfile extends React.Component {
             </Card.Body>
           </Card>
         </div>
+
       );
     })
     return (
