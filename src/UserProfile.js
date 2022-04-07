@@ -12,7 +12,14 @@ class UserProfile extends React.Component {
     this.state = {
       music: [],
       showModal: false,
+      deleteMusic: false,
     }
+  }
+
+  deleteMusicForm = () => {
+    this.setState({
+      deleteMusic: true
+    })
   }
   
   getMusic = async () => {
@@ -76,11 +83,11 @@ class UserProfile extends React.Component {
 
   deleteMusic = async (id) => {
     try {
-      let url = `${SERVER}/music/${id}`;
-      await axios.delete(url);
-      let updatedMusic = this.state.music.filter(Music => Music._id !== id);
+      //let url = `${SERVER}/music/${id}`;
+      await axios.delete(`${SERVER}/music/${id}`);
+      let deletEDMusic = this.state.music.filter(Music => Music._id !== id);
       this.setState({
-        music: updatedMusic
+        music: deletEDMusic
       })
     } catch (error) {
       console.log('error, doggy', error.response.data);
@@ -127,7 +134,9 @@ class UserProfile extends React.Component {
             {/* Personal Note: {this.state.query.note} */}
           </Card.Text>
           <Button className="rainbow-button" variant="primary" onClick={this.displayModal}>Comments</Button>
-          {/* <Button className="rainbow-button" variant="primary" onClick={this.deleteMusic(this.id)}>Comments</Button> */}
+          <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(this.deleteMusic._id)}
+          >Delete
+          </Button>
         </Card.Body>
       </Card>
       </div>
