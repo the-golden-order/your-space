@@ -41,9 +41,9 @@ class UserProfile extends React.Component {
 
   updateMusic = async (updatedEntry) => {
     try {
-      let url = `${SERVER}/music/${updatedEntry._id}`;
+      let id = updatedEntry._id;
+      let url = `${SERVER}/music/${id}}`;
       let updatedMusic = await axios.put(url, updatedEntry);
-      console.log(updatedEntry);
       let updatedMusicData = this.state.music.map(currentMusic => {
         return currentMusic._id === updatedEntry._id 
         ?
@@ -55,28 +55,30 @@ class UserProfile extends React.Component {
         music: updatedMusicData
       });
     } catch (error) {
-      console.log('error updating', error.message);
+      console.log('error updating', error.response.data);
     }
   };
 
   handleUpdate = (e) => {
     e.preventDefault();
-    let newNote = {
+    let updatedEntry = {
       trackName: this.state.music.trackName,
       artWork: this.state.music.artWork,
       genre: this.state.music.genre,
-      note: e.target.note.value || this.props.music.note,
+      note: e.target.value || this.state.music.note,
       email: this.state.music.email,
       previewUrl: this.state.music.previewUrl,
       _id:this.state.music._id,
       __v: this.state.music.__v
     }
-    this.updateMusic(newNote);
+    console.log(this.state.music);
+    this.updateMusic(updatedEntry);
     this.hideModal();
   }
 
   deleteMusic = async (id) => {
     try {
+      
       let url = `${SERVER}/music/${id}`;
       await axios.delete(url);
       let updatedMusic = this.state.music.filter(Music => Music._id !== id);
@@ -86,7 +88,6 @@ class UserProfile extends React.Component {
     } catch (error) {
       console.log('error, doggy', error.response.data);
     }
-    this.getMusic();
   };
 
   displayModal = () => {
@@ -100,8 +101,17 @@ class UserProfile extends React.Component {
       showModal: false
     });
   };
+
+  handleNote = (e) => {
+    e.preventDefault();
+    this.setState({
+      note: e.target.value
+    });
+    console.log(this.state.music.note);
+  }
+
   render() {
-    let addedSongs = this.state.music.map((query, index ) => {
+    let addedSongs = this.state.music.map((query, index) => {
       return (
         <div className="cards">
         <Card key={index} className="individual-card" style={{ width: '18rem' }}>
@@ -131,7 +141,7 @@ class UserProfile extends React.Component {
             {/* Personal Note: {this.state.query.note} */}
           </Card.Text>
           <Button className="rainbow-button" variant="primary" onClick={this.displayModal}>Comments</Button>
-          {/* <Button className="rainbow-button" variant="primary" onClick={this.deleteMusic(this.id)}>Comments</Button> */}
+          <Button className="rainbow-button" variant="primary" onClick={this.deleteMusic(this.id)}>Delete</Button>
         </Card.Body>
       </Card>
       </div>
