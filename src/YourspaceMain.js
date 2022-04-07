@@ -20,9 +20,6 @@ class Main extends React.Component {
       // games: [],
       // steamAPI: [],
       // gameQuery: '',
-
-      dbSongs:[],
-
       showModal: false,
       auth0Email: this.props.auth0.user.email
     }
@@ -266,12 +263,7 @@ class Main extends React.Component {
             {allResults}            
           </main>
         </Container>
-
-
-
-        <UserProfile music={this.state.music}/>
-
-
+        {/* <UserProfile music={this.state.music}/> */}
       </>
     )
 
