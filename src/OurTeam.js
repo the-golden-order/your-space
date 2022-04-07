@@ -22,6 +22,7 @@ class OurTeam extends React.Component {
           <p> Hello! Excited to have you here! I'm Eden, and I'm just a Baby Software Developer, and a trained Virology Research Scientist. I love video games and art of all sorts, including but not limited to drawing, cooking, and crafting. I'm also always interested in trying new activities, some of my favorites that I've tried are skateboarding, rock climbing and aerial yoga!  Finally I think a large part of myself is my love for animals, I have two cats and I'm always eager to meet and make new animal friends. I hope you enjoyed Your Space!</p>
           <div className="carousel-div">
           <img 
+          className="ourTeamImg"
           src= {Eden} 
           alt="Eden and a Llama" 
           />
@@ -34,10 +35,9 @@ class OurTeam extends React.Component {
             <h3> Full-Stack Software Developer </h3>
             <p> Greeting my fellow human, Glad to see ya here! My name is Ryan and I'm a new and excited software developer! I personally love to play and stream video games, as well as spending a lot of time playing my guitar.One of my favorite outdoor activities is Disc Golf, such a great sport and a great hike all in one! Thanks for coming to my Ted talk ya'll!</p>
             <img
-
+            className="ourTeamImg"
             src={Ryan}
             alt="Ryan French Pose 1"
-
             />
             <Button className="carousel-button" href="https://github.com/RyanLMcMillan">GitHub Profile</Button>
             <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ryan-m-369b50132/" >LinkedIn Profile</Button>
@@ -47,6 +47,7 @@ class OurTeam extends React.Component {
             <h3> Full-Stack Software Developer </h3>
             <p>Youll update this later</p>
             <img
+            className="ourTeamImg"
             src=""
             alt=""
             />
@@ -60,6 +61,7 @@ class OurTeam extends React.Component {
             <h3> Full-Stack Software Developer </h3>
             <p>Youll update this later</p>
             <img
+            className="ourTeamImg"
             src=""
             alt=""
             />
@@ -74,6 +76,7 @@ class OurTeam extends React.Component {
 
             <p>Hey there! I'm Marcus Hartwig and I'm happy you're here. I am both a husband and father, and my family is currently based in the Seattle, WA area. I have extensive leadership experiance particularly in the context in deep wilderness areas. I love traveling and experiancing all that this world has to offer. I have also gotten to visit all 50 States and I am often traveling between Europe and Asia.</p>
             <img 
+            className="ourTeamImg"
              src= {Marcus} 
              alt="Marcus and Denise below the Materhorne, CH" 
           />

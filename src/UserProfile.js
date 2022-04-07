@@ -21,7 +21,7 @@ class UserProfile extends React.Component {
             Song: {query.trackName}
           </Card.Text>
           <Card.Text>
-            Album Art:
+            {/* Album Art: */}
             <img src={query.artWork} alt="Album artwork" />
           </Card.Text>
           <Card.Text>
