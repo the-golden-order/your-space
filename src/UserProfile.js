@@ -154,7 +154,8 @@ class UserProfile extends React.Component {
                 Personal Note: {query.note}
               </Card.Text>
               <Button className="rainbow-button" variant="primary" onClick={() => this.displayModal(query)}>Comments</Button>
-              <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(this.deleteMusic._id)}
+              <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(this.deleteMusic._id)}>Delete</Button>
+
             </Card.Body>
           </Card>
         </div>
