@@ -24,8 +24,11 @@ class Header extends React.Component {
           <>
         <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
         <NavItem>
-          <Link to='/UserProfile' className='nav-link'>Profile</Link>
+          <Link to='/UserProfile' className='nav-link'>Your Music</Link>
         </NavItem>
+        {/* <NavItem>
+          <Link to='/GameProfile' className='nav-link'>Your Games</Link>
+        </NavItem> */}
         <NavItem>
         <Link to='/OurTeam' className='nav-link'>Our Team</Link>
         </NavItem>      

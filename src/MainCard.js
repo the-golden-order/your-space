@@ -16,12 +16,14 @@ class MainCard extends React.Component {
       artWork: this.props.query.artWork,
       genre: this.props.query.genre,
       note: '',
-      email: this.props.auth0Email
+      email: this.props.auth0Email,
+      previewUrl: this.props.query.previewUrl
     }
     this.props.postMusic(newMusic);
   }
 
   render() {
+    console.log(this.props.query)
     return (
       <div className="cards">
       <Card className="individual-card" style={{ width: '18rem' }}>
@@ -43,6 +45,9 @@ class MainCard extends React.Component {
           </Card.Text>
           <Card.Text>
             Genre: {this.props.query.genre}
+          </Card.Text>
+          <Card.Text>
+            Play the Song: <audio controls> <source src={this.props.query.previewUrl} type="audio/mpeg"/></audio>
           </Card.Text>
           <Card.Text>
             Personal Note: {this.props.query.note}
