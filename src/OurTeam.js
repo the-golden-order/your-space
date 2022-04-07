@@ -11,7 +11,7 @@ class OurTeam extends React.Component {
     return (
       <>
 
-      <Carousel interval={null} >
+      <Carousel className="carry" interval={null} >
         <CarouselItem>
           <h2>Welcome to The Golden Order's Software Dev Team Page! </h2>
           <p> Scroll through the Carousel to Meet the Devs! We are a wile group of folks who desire to see the world through the eyes of code! If you asked, I'm sure you'd find out that half of us believe that we are just in a simulation and that the Matrix movie was just a ploy from BIG BRIAN to mess with 'humanity' as a whole. All the same, we are excited that you chose to stop by and check out this site! We hope that you enjoy what you see, and that the rainbow page hasn't thrown you too much for a loop (we have a teammate who loves to use rainbows in all their sites. it's a tough habbit to break). ~ LOVE, The GOLDEN ORDER  </p>

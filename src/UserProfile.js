@@ -2,6 +2,7 @@ import React from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Container } from "react-bootstrap";
 import axios from "axios";
+import './MainCard.css'
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class UserProfile extends React.Component {
   render() {
     let addedSongs = this.state.music.map((query, index) => {
       return (
+        <div className="cards">
         <Card key={index} className="individual-card" style={{ width: '18rem' }}>
         {/* <Card.Img variant="top" src="{this.state.query.artWork}" /> */}
         <Card.Body>
@@ -64,6 +66,7 @@ class UserProfile extends React.Component {
           </Card.Text>
         </Card.Body>
       </Card>
+      </div>
       );
     })
     return (

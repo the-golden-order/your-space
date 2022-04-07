@@ -23,6 +23,9 @@ p{
   margin-bottom: 10vh;
 }
 
+.carry {
+  height: 95vh;
+}
 .carousel-div {
   justify-content: center;
   margin: 40px;
