@@ -2,6 +2,8 @@ import React from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Container, Button, Modal, Form } from "react-bootstrap";
 import axios from "axios";
+import './MainCard.css'
+
 let SERVER = process.env.REACT_APP_SERVER;
 
 class UserProfile extends React.Component {
@@ -100,6 +102,7 @@ class UserProfile extends React.Component {
   render() {
     let addedSongs = this.state.music.map((query, index ) => {
       return (
+        <div className="cards">
         <Card key={index} className="individual-card" style={{ width: '18rem' }}>
         {/* <Card.Img variant="top" src="{this.state.query.artWork}" /> */}
         <Card.Body>
@@ -114,7 +117,7 @@ class UserProfile extends React.Component {
             Song: {query.trackName}
           </Card.Text>
           <Card.Text>
-            Album Art:
+            {/* Album Art: */}
             <img src={query.artWork} alt="Album artwork" />
           </Card.Text>
           <Card.Text>
@@ -127,6 +130,7 @@ class UserProfile extends React.Component {
           {/* <Button className="rainbow-button" variant="primary" onClick={this.deleteMusic(this.id)}>Comments</Button> */}
         </Card.Body>
       </Card>
+      </div>
       );
     })
     return (

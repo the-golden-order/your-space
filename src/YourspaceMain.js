@@ -1,12 +1,12 @@
 import axios from "axios";
 import React from "react";
-import { Container, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import SearchBar from "./SearchBar";
 import MainCard from './MainCard';
 // import GameCard from './GameCard';
 import './Button.css'
-import UserProfile from "./UserProfile";
+// import UserProfile from "./UserProfile";
 let SERVER = process.env.REACT_APP_SERVER;
 
 class Main extends React.Component {
@@ -116,10 +116,12 @@ class Main extends React.Component {
     }
   };
 
+
   // componentDidMount() {
   //   this.getMusic();
   //   console.log(this.state.music);
   // }
+
 
   postMusic = async (newMusic) => {
     try {

@@ -14,7 +14,7 @@ p{
   margin: 30px;
 }
 
-img {  
+.ourTeamImg {  
   border: 1px solid black;
   border-radius: 20px;
   width: 30%;
@@ -23,6 +23,9 @@ img {
   margin-bottom: 10vh;
 }
 
+.carry {
+  height: 95vh;
+}
 .carousel-div {
   justify-content: center;
   margin: 40px;
@@ -92,6 +95,6 @@ img {
   100% { background-position: 0 0; }
 }
 
-main {
+/* main {
   height: 90vh;
-}
+} */
