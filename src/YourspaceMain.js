@@ -43,24 +43,7 @@ class Main extends React.Component {
     }
   };
 
-  getGame = async () => {
-    if (this.props.auth0.isAuthenticated) {
-      const res = await this.props.auth0.getIdTokenClaims();
-      const jwt = res.__raw;
-      console.log(jwt); 
-      const config = {
-        method: 'get',
-        baseURL: process.env.REACT_APP_SERVER,
-        url: '/music',
-        headers: { "Authorization": `Bearer ${jwt}` }
-      };
-      const musicResults = await axios(config);
-      console.log(musicResults.data);
-      this.setState({
-        music: musicResults.data
-      })
-    }
-  }
+
   postGame = async (newGame) => {
     try {
       let results = await axios.post(`${SERVER}/game`, newGame);
@@ -72,37 +55,7 @@ class Main extends React.Component {
     }
   }
 
-  updateGame = async (updatedEntry) => {
-    try {
-      let url = `${SERVER}/game/${updatedEntry._id}`;
-      let updatedGame = await axios.put(url, updatedEntry);
-      console.log(updatedEntry);
-      let updatedGameData = this.state.games.map(currentGame => {
-        return currentGame._id === updatedEntry._id ?
-          updatedGame.data :
-          currentGame;
-      });
-      this.setState({
-        games: updatedGameData
-      });
-    } catch (error) {
-      console.log('error updating', error.message);
-    }
-  };
-
-  deleteGame = async (id) => {
-    try {
-      let url = `${SERVER}/game/${id}`;
-      await axios.delete(url);
-      let updatedGame = this.state.games.filter(Game => Game._id !== id);
-      this.setState({
-        games: updatedGame
-      })
-    } catch (error) {
-      console.log('error, doggy', error.response.data);
-    }
-    this.getGame();
-  }; */
+ */
 
 // ############### FOR MUSIC ############
   getItunesData = async () => {

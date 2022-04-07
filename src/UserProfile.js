@@ -67,6 +67,7 @@ class UserProfile extends React.Component {
       genre: this.state.music.genre,
       note: e.target.note.value || this.props.music.note,
       email: this.state.music.email,
+      previewUrl: this.state.music.previewUrl,
       _id:this.state.music._id,
       __v: this.state.music.__v
     }
@@ -122,6 +123,9 @@ class UserProfile extends React.Component {
           </Card.Text>
           <Card.Text>
             Genre: {query.genre}
+          </Card.Text>
+          <Card.Text>
+            Song Preview: <audio controls> <source src={query.previewUrl} type="audio/mpeg"/> </audio> 
           </Card.Text>
           <Card.Text>
             {/* Personal Note: {this.state.query.note} */}
