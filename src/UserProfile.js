@@ -12,18 +12,18 @@ class UserProfile extends React.Component {
     this.state = {
       music: [],
       showModal: false,
-      deleteMusic: false,
+      // deleteMusic: false,
       inputFieldValue: '',
       currentCardObj: {}
     }
   }
 
- deleteMusicForm = () => {
-    this.setState({
-      deleteMusic: true
-    })
-  }
- 
+  //  deleteMusicForm = () => {
+  //     this.setState({
+  //       deleteMusic: true
+  //     })
+  //   }
+
   getMusic = async () => {
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
@@ -72,8 +72,8 @@ class UserProfile extends React.Component {
     e.preventDefault();
 
     if (this.state.inputFieldValue) {
-      
-     let updatedCardObject = {
+
+      let updatedCardObject = {
         trackName: this.state.currentCardObj.trackName,
         artWork: this.state.currentCardObj.artWork,
         genre: this.state.currentCardObj.genre,
@@ -86,8 +86,27 @@ class UserProfile extends React.Component {
       // console.log(this.state.currentCardObj);
       this.updateMusic(updatedCardObject);
       this.hideModal();
-    }   
+    }
+  }
 
+  handleDelete = (e) => {
+    e.preventDefault();
+
+    if (this.state.inputFieldValue) {
+
+      let deletedCardObject = {
+        trackName: this.state.currentCardObj.trackName,
+        artWork: this.state.currentCardObj.artWork,
+        genre: this.state.currentCardObj.genre,
+        note: this.state.currentCardObj.note,
+        email: this.state.currentCardObj.email,
+        previewUrl: this.state.currentCardObj.previewUrl,
+        _id: this.state.currentCardObj._id,
+        __v: this.state.currentCardObj.__v
+      }
+      // console.log(this.state.currentCardObj);
+      this.deleteMusic(deletedCardObject);
+    }
   }
 
   deleteMusic = async (id) => {
@@ -95,7 +114,7 @@ class UserProfile extends React.Component {
       //let url = `${SERVER}/music/${id}`;
       await axios.delete(`${SERVER}/music/${id}`);
       let deletEDMusic = this.state.music.filter(Music => Music._id !== id);
-       this.setState({
+      this.setState({
         music: deletEDMusic
       })
     } catch (error) {
@@ -129,6 +148,8 @@ class UserProfile extends React.Component {
     let addedSongs = this.state.music.map((query) => {
 
       return (
+        this.props.auth0.user.email === query.email 
+        ?
         <div className="cards" key={query._id}>
           <Card className="individual-card" style={{ width: '18rem' }}>
             {/* <Card.Img variant="top" src="{this.state.query.artWork}" /> */}
@@ -151,13 +172,18 @@ class UserProfile extends React.Component {
                 Genre: {query.genre}
               </Card.Text>
               <Card.Text>
+                Play the Song: <audio controls> <source src={query.previewUrl} type="audio/mpeg" /></audio>
+              </Card.Text>
+              <Card.Text>
                 Personal Note: {query.note}
               </Card.Text>
               <Button className="rainbow-button" variant="primary" onClick={() => this.displayModal(query)}>Comments</Button>
-              <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(this.deleteMusic._id)}
+              <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(query._id)}>Delete</Button>
             </Card.Body>
           </Card>
         </div>
+        :
+        ''
       );
     })
     return (
