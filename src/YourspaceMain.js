@@ -117,25 +117,11 @@ class Main extends React.Component {
   };
 
 
-  getMusic = async () => {
-    if (this.props.auth0.isAuthenticated) {
-      const res = await this.props.auth0.getIdTokenClaims();
-      const jwt = res.__raw;
-      console.log(jwt); 
-      const config = {
-        method: 'get',
-        baseURL: process.env.REACT_APP_SERVER,
-        url: '/music',
-        headers: { "Authorization": `Bearer ${jwt}` }
-      };
-      const musicResults = await axios(config);
-      console.log(musicResults.data);
-      this.setState({
-        music: musicResults.data
-      })
-      
-    }
-  }
+  // componentDidMount() {
+  //   this.getMusic();
+  //   console.log(this.state.music);
+  // }
+
 
   postMusic = async (newMusic) => {
     try {
@@ -148,56 +134,56 @@ class Main extends React.Component {
     }
   }
 
-  updateMusic = async (updatedEntry) => {
-    try {
-      let url = `${SERVER}/music/${updatedEntry._id}`;
-      let updatedMusic = await axios.put(url, updatedEntry);
-      console.log(updatedEntry);
-      let updatedMusicData = this.state.music.map(currentMusic => {
-        return currentMusic._id === updatedEntry._id ?
-          updatedMusic.data :
-          currentMusic;
-      });
-      this.setState({
-        x: updatedMusicData
-      });
-    } catch (error) {
-      console.log('error updating', error.message);
-    }
-  };
+  // updateMusic = async (updatedEntry) => {
+  //   try {
+  //     let url = `${SERVER}/music/${updatedEntry._id}`;
+  //     let updatedMusic = await axios.put(url, updatedEntry);
+  //     console.log(updatedEntry);
+  //     let updatedMusicData = this.state.music.map(currentMusic => {
+  //       return currentMusic._id === updatedEntry._id ?
+  //         updatedMusic.data :
+  //         currentMusic;
+  //     });
+  //     this.setState({
+  //       x: updatedMusicData
+  //     });
+  //   } catch (error) {
+  //     console.log('error updating', error.message);
+  //   }
+  // };
 
-  deleteMusic = async (id) => {
-    try {
-      let url = `${SERVER}/music/${id}`;
-      await axios.delete(url);
-      let updatedMusic = this.state.music.filter(Music => Music._id !== id);
-      this.setState({
-        music: updatedMusic
-      })
-    } catch (error) {
-      console.log('error, doggy', error.response.data);
-    }
-    this.getMusic();
-  };
+  // deleteMusic = async (id) => {
+  //   try {
+  //     let url = `${SERVER}/music/${id}`;
+  //     await axios.delete(url);
+  //     let updatedMusic = this.state.music.filter(Music => Music._id !== id);
+  //     this.setState({
+  //       music: updatedMusic
+  //     })
+  //   } catch (error) {
+  //     console.log('error, doggy', error.response.data);
+  //   }
+  //   this.getMusic();
+  // };
 
 
-  componentDidMount() {
-    console.log('did mount');
-    this.getMusic();
-/*    this.getGame(); */
-  }
+//   componentDidMount() {
+//     console.log('did mount');
+//     this.getMusic();
+// /*    this.getGame(); */
+//   }
 
-  displayModal = () => {
-    this.setState({
-      showModal: true,
-    });
-  };
+  // displayModal = () => {
+  //   this.setState({
+  //     showModal: true,
+  //   });
+  // };
 
-  hideModal = () => {
-    this.setState({
-      showModal: false
-    });
-  };
+  // hideModal = () => {
+  //   this.setState({
+  //     showModal: false
+  //   });
+  // };
 
 
 
