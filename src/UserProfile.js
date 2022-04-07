@@ -91,9 +91,6 @@ class UserProfile extends React.Component {
 
   handleDelete = (e) => {
     e.preventDefault();
-
-    if (this.state.inputFieldValue) {
-
       let deletedCardObject = {
         trackName: this.state.currentCardObj.trackName,
         artWork: this.state.currentCardObj.artWork,
@@ -105,8 +102,7 @@ class UserProfile extends React.Component {
         __v: this.state.currentCardObj.__v
       }
       // console.log(this.state.currentCardObj);
-      this.deleteMusic(deletedCardObject);
-    }
+      this.deleteMusic(deletedCardObject); 
   }
 
   deleteMusic = async (id) => {
