@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card"
+import "./Profile.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
@@ -12,7 +13,7 @@ if (isLoading) {
 return (
   isAuthenticated && (
     <Card>
-        <Card.Img src={user.picture} alt={user.name} />
+        <Card.Img className="loggedInPhoto" src={user.picture} alt={user.name} />
         <Card.Body>
 
         <Card.Text>{user.name}</Card.Text>

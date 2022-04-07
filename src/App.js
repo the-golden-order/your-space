@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import BestMusic from './YourspaceMain';
 import Login from './Login';
-import Profile from './Profile'
+import UserProfile from './UserProfile'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -75,10 +75,10 @@ class App extends React.Component {
                 />
               }
             </Route>
-            <Route exact path="/Profile">
+            <Route exact path="/UserProfile">
               {this.props.auth0.isAuthenticated
                 ?
-                <Profile
+                <UserProfile
                   user={this.state.user}
                   email={this.state.email}
                 />
