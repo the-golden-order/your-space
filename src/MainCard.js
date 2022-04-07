@@ -38,7 +38,7 @@ class MainCard extends React.Component {
             Song: {this.props.query.trackName}
           </Card.Text>
           <Card.Text>
-            Album Art:
+            {/* Album Art: */}
             <img src={this.props.query.artWork} alt="Album artwork" />
           </Card.Text>
           <Card.Text>
