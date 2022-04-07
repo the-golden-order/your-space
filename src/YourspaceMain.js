@@ -139,10 +139,6 @@ class Main extends React.Component {
       
     }
   }
-  componentDidMount() {
-    this.getMusic();
-    console.log(this.state.music);
-  }
 
   postMusic = async (newMusic) => {
     try {
