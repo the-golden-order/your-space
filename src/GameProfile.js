@@ -3,6 +3,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Container, Button, Modal, Form } from 'react-bootstrap';
 import axios from 'axios';
 import './MainCard.css';
+import './Button.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
 
@@ -128,9 +129,8 @@ class GameProfile extends React.Component {
   render() {
     let addedGames = this.state.game.map((query) => {
       return (
-        <div className="cards" key={query._id}>
-          <Card className="individual-card" style={{ width: '18rem' }}>
-            <Card.Body>
+          <Card className="individual-card" key={query._id}>
+            <Card.Body className="real-card-body">
               <Card.Title> {query.title}</Card.Title>
               <Card.Text>
                 Summary: {query.description}
@@ -154,7 +154,6 @@ class GameProfile extends React.Component {
               <Button className="rainbow-button" variant="primary" onClick={() => this.deleteGame(query._id)}>Delete</Button>
             </Card.Body>
           </Card>
-        </div>
       );
     })
     return (
