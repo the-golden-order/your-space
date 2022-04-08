@@ -28,7 +28,7 @@ class UserProfile extends React.Component {
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
       const jwt = res.__raw;
-      console.log(jwt);
+      // console.log(jwt);
       const config = {
         method: 'get',
         baseURL: process.env.REACT_APP_SERVER,
@@ -36,7 +36,6 @@ class UserProfile extends React.Component {
         headers: { "Authorization": `Bearer ${jwt}` }
       };
       const musicResults = await axios(config);
-      console.log(musicResults.data);
       this.setState({
         music: musicResults.data
       })

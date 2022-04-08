@@ -15,7 +15,6 @@ class Header extends React.Component {
 
   render() {
 
-    console.log(this.props);
     return (
       <Navbar   className="head-nav" /* collapseOnSelect expand="lg" bg="dark" variant="dark"*/>
         <Navbar.Brand className='head-title'>My Favorite Music</Navbar.Brand>

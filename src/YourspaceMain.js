@@ -142,9 +142,9 @@ class Main extends React.Component {
 
   render() {
 
-    console.log(this.props.auth0.user);
-    console.log(this.props.auth0.user.email);
-    console.log('Music: ', this.state.music);
+    // console.log(this.props.auth0.user);
+    // console.log(this.props.auth0.user.email);
+    // console.log('Music: ', this.state.music);
 
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
@@ -182,7 +182,7 @@ class Main extends React.Component {
     //   );
     // })
 
-    console.log('Query: ', this.state.query);
+    // console.log('Query: ', this.state.query);
     return (
       <>
         <Container>

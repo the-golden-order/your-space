@@ -3,9 +3,8 @@ import { Carousel, CarouselItem, Button } from 'react-bootstrap';
 import "./OurTeam.css";
 import Eden from './OurTeamPics/picture_for_codle_aboutus.png';
 import Marcus from './OurTeamPics/Marcus.jpeg';
-import Ryan from './OurTeamPics/me.jpeg'
-import Roger from './OurTeamPics/rogger.jpg'
-import Thomas from './OurTeamPics/thomasphoto.jpg'
+import Ryan from './OurTeamPics/me.jpeg';
+import Thomas from './OurTeamPics/thomasphoto.jpg';
 
 class OurTeam extends React.Component {
   render() {
@@ -62,7 +61,7 @@ class OurTeam extends React.Component {
             <p>Welcome to Yourspace, everyone! I'm Roger, cyclist, developer, photographer. We wanted to create this resource for you to search for and share music with your friends. I hope you enjoy it! </p>
             <img
             className="ourTeamImg"
-            src={Roger}
+            src="{Roger}"
             alt="Roger on a bicycle"
             />
             <Button className="carousel-button" href="https://github.com/rsw359">GitHub Profile</Button>
