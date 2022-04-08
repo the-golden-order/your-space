@@ -4,7 +4,7 @@ import Footer from './Footer';
 import BestMusic from './YourspaceMain';
 import Login from './Login';
 import UserProfile from './UserProfile';
-//import GameProfile from './GameProfile';
+import GameProfile from './GameProfile';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -86,17 +86,17 @@ class App extends React.Component {
                 null
               }
             </Route>
-            {/* <Route exact path="/GameProfile">
+            <Route exact path="/GameProfile">
               {this.props.auth0.isAuthenticated
                 ?
-                <UserProfile
+                <GameProfile
                   user={this.state.user}
                   email={this.state.email}
                 />
                 :
                 null
               }
-            </Route> */}
+            </Route>
             <Route exact path="/OurTeam">
               <OurTeam/>
             </Route>

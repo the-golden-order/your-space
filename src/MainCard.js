@@ -23,7 +23,6 @@ class MainCard extends React.Component {
   }
 
   render() {
-    console.log(this.props.query)
     return (
       <div className="cards">
       <Card className="individual-card" style={{ width: '18rem' }}>
@@ -40,7 +39,6 @@ class MainCard extends React.Component {
             Song: {this.props.query.trackName}
           </Card.Text>
           <Card.Text>
-            {/* Album Art: */}
             <img src={this.props.query.artWork} alt="Album artwork" />
           </Card.Text>
           <Card.Text>
@@ -48,9 +46,6 @@ class MainCard extends React.Component {
           </Card.Text>
           <Card.Text>
             Play the Song: <audio controls> <source src={this.props.query.previewUrl} type="audio/mpeg"/></audio>
-          </Card.Text>
-          <Card.Text>
-            Personal Note: {this.props.query.note}
           </Card.Text>
         </Card.Body>
       </Card>
