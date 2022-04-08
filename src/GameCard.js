@@ -20,31 +20,27 @@ class GameCard extends React.Component {
   render() {
     return (
       <div className="cards">
-      <Card className="individual-card" style={{ width: '18rem' }}>
-        <Card.Body>
-          <Card.Title>{this.props.query.title}</Card.Title>
-          <Card.Text>
-            link to steam: {this.props.query.url}
-          </Card.Text>
-          <Button className="rainbow-button" variant="primary" onClick={this.handleGameLibrary}>Add To Profile</Button>
-          <Card.Text>
-            Title: {this.props.query.title}
-          </Card.Text>
-          <Card.Text>
-            Game Art:
-            <img src={this.props.query.imgURL} alt="Game artwork" />
-          </Card.Text>
-          <Card.Text>
-            Released : {this.props.query.price}
-          </Card.Text>
-          <Card.Text>
-             Steam Reviews: {this.props.query.reviewSummary}
-          </Card.Text>
-          <Card.Text>
-            Price: {this.props.query.price}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+        <Card className="individual-card" style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title> {this.props.query.title}</Card.Title>
+            <Button className="rainbow-button" variant="primary" onClick={this.handleGameLibrary}>Add To Profile</Button>
+            <Card.Text>
+              Summary: {this.props.query.description}
+            </Card.Text>
+            <Card.Text>
+              Platform: {this.props.query.platform}
+            </Card.Text>
+            <Card.Text>
+              Genre: {this.props.query.genre}
+            </Card.Text>
+            <Card.Text>
+              Publisher: {this.props.query.publisher}
+            </Card.Text>
+            <Card.Text>
+              <a href={this.props.query.game_url}>Game url</a>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     )
 
