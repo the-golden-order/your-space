@@ -23,33 +23,32 @@ class MainCard extends React.Component {
   }
 
   render() {
-    return (
-      <div className="cards">
-      <Card className="individual-card" style={{ width: '18rem' }}>
-        <Card.Body>
+
+    return (      
+      <Card className="individual-card" >
+        <Card.Body className="real-card-body">
           <Card.Title>{this.props.query.artistName}</Card.Title>
           <Card.Text>
             {this.props.query.note}
           </Card.Text>
-          <Button className="rainbow-button" variant="primary" onClick={this.handleMusicLibrary}>Add To Profile</Button>
           <Card.Text>
             Artist: {this.props.query.artistName}
           </Card.Text>
           <Card.Text>
             Song: {this.props.query.trackName}
           </Card.Text>
-          <Card.Text>
-            <img src={this.props.query.artWork} alt="Album artwork" />
+          <Card.Text className="card-album-art">
+            <img className="card-image" src={this.props.query.artWork} alt="Album artwork" />
           </Card.Text>
           <Card.Text>
             Genre: {this.props.query.genre}
           </Card.Text>
-          <Card.Text>
-            Play the Song: <audio controls> <source src={this.props.query.previewUrl} type="audio/mpeg"/></audio>
+          <Card.Text style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
+            Play the Song: <audio controls className="audio-controls" style={{ width: '250px'}}> <source src={this.props.query.previewUrl} type="audio/mpeg"/></audio>
           </Card.Text>
+          <Button className="rainbow-button" variant="primary" onClick={this.handleMusicLibrary}>Add To Profile</Button>
         </Card.Body>
       </Card>
-      </div>
     )
 
   }

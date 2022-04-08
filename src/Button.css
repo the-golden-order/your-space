@@ -7,8 +7,12 @@
   margin-top: 20px;
   margin-bottom: 20px;
   background: linear-gradient(#FBF8CC, #F1C0E8, #90DBF4);
+  font-family: 'Yellowtail', cursive;
 }
 
+.search-label{
+  padding: 10px;
+}
 .rainbow-button {
   width: .2rem .1vw;
   border: none;
@@ -74,5 +78,7 @@
 }
 
 main {
-  height: 90vh;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
 }

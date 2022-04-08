@@ -138,14 +138,14 @@ class UserProfile extends React.Component {
               <Card.Text>
                 Song: {query.trackName}
               </Card.Text>
-              <Card.Text>
-                <img src={query.artWork} alt="Album artwork" />
+              <Card.Text className="card-album-art">
+                <img className="card-image" src={query.artWork} alt="Album artwork" />
               </Card.Text>
               <Card.Text>
                 Genre: {query.genre}
               </Card.Text>
-              <Card.Text>
-                Play the Song: <audio controls> <source src={query.previewUrl} type="audio/mpeg" /></audio>
+              <Card.Text style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
+                Play the Song: <audio controls className="audio-controls"> <source src={query.previewUrl} type="audio/mpeg" /></audio>
               </Card.Text>
               <Card.Text>
                 Personal Note: {query.note}
@@ -154,15 +154,17 @@ class UserProfile extends React.Component {
               <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(query._id)}>Delete</Button>
             </Card.Body>
           </Card>
-        </div>
-        :
-        ''
+
+          :
+          ''
       );
     })
     return (
       <>
         <Container>
+          <main>
           {addedSongs}
+          </main>
         </Container>
 
         <Modal

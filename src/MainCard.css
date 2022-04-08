@@ -2,12 +2,44 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow: auto;
-  float: left;
+  overflow: auto;  
   height: 50vh;
   width: 18rem;
   margin: 20px;
   box-shadow: 0.7vw 0.3vw 0.3vw #6d0359;
   border-radius: 20px;
+  font-family: 'Yellowtail', cursive;
 }
 
+.audio-controls {
+  width: 250px;
+  display: block;
+  align-self: flex-start;
+  
+}
+
+.individual-card.card{ 
+  width: 300px;
+  background-color: transparent;
+  border: none;
+}
+.real-card-body {
+  background-color: whitesmoke;
+  /* display: flex;
+  flex-wrap: wrap; */
+  justify-content: center;  
+  height: 48vh;
+  width: 18rem;
+  margin: 20px;
+  box-shadow: 0.7vw 0.3vw 0.3vw #6d0359;
+  border-radius: 20px;
+  font-family: 'Yellowtail', cursive;
+}
+
+.real-card-body.card-body .card-text{
+  margin: 15px;
+}
+
+.card-image {
+  width: 150px;
+}
