@@ -4,9 +4,8 @@ import { Container } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import SearchBar from "./SearchBar";
 import MainCard from './MainCard';
-// import GameCard from './GameCard';
+import GameCard from './GameCard';
 import './Button.css'
-// import UserProfile from "./UserProfile";
 let SERVER = process.env.REACT_APP_SERVER;
 
 class Main extends React.Component {
@@ -17,9 +16,8 @@ class Main extends React.Component {
       music: [],
       itunesAPI: [],
       query: '',
-      // games: [],
-      // steamAPI: [],
-      // gameQuery: '',
+      game: [],
+      gameAPI: [],
       showModal: false,
       auth0Email: this.props.auth0.user.email
     }
@@ -32,11 +30,11 @@ class Main extends React.Component {
   }
 
 // ############### FOR GAME ############
-/*  getSteamData = async () => {
+  getGameData = async () => {
     try {
-      let steamData = await axios.get(`${SERVER}/steam?term=${this.state.gameQuery}`);
+      let gameData = await axios.get(`${SERVER}/GameAPI`);
       this.setState({
-        steamAPI: steamData.data
+        gameAPI: gameData.data
       });
     } catch (error) {
       console.log('error updating', error.message);
@@ -48,14 +46,14 @@ class Main extends React.Component {
     try {
       let results = await axios.post(`${SERVER}/game`, newGame);
       this.setState({
-        games: [...this.state.games, results.data]
+        game: [...this.state.game, results.data]
       });
     } catch (error) {
       console.error('error', error.response);
     }
   }
 
- */
+
 
 // ############### FOR MUSIC ############
   getItunesData = async () => {
@@ -70,12 +68,6 @@ class Main extends React.Component {
   };
 
 
-  // componentDidMount() {
-  //   this.getMusic();
-  //   console.log(this.state.music);
-  // }
-
-
   postMusic = async (newMusic) => {
     try {
       let results = await axios.post(`${SERVER}/music`, newMusic);
@@ -87,65 +79,8 @@ class Main extends React.Component {
     }
   }
 
-  // updateMusic = async (updatedEntry) => {
-  //   try {
-  //     let url = `${SERVER}/music/${updatedEntry._id}`;
-  //     let updatedMusic = await axios.put(url, updatedEntry);
-  //     console.log(updatedEntry);
-  //     let updatedMusicData = this.state.music.map(currentMusic => {
-  //       return currentMusic._id === updatedEntry._id ?
-  //         updatedMusic.data :
-  //         currentMusic;
-  //     });
-  //     this.setState({
-  //       x: updatedMusicData
-  //     });
-  //   } catch (error) {
-  //     console.log('error updating', error.message);
-  //   }
-  // };
-
-  // deleteMusic = async (id) => {
-  //   try {
-  //     let url = `${SERVER}/music/${id}`;
-  //     await axios.delete(url);
-  //     let updatedMusic = this.state.music.filter(Music => Music._id !== id);
-  //     this.setState({
-  //       music: updatedMusic
-  //     })
-  //   } catch (error) {
-  //     console.log('error, doggy', error.response.data);
-  //   }
-  //   this.getMusic();
-  // };
-
-
-//   componentDidMount() {
-//     console.log('did mount');
-//     this.getMusic();
-// /*    this.getGame(); */
-//   }
-
-  // displayModal = () => {
-  //   this.setState({
-  //     showModal: true,
-  //   });
-  // };
-
-  // hideModal = () => {
-  //   this.setState({
-  //     showModal: false
-  //   });
-  // };
-
-
 
   render() {
-
-    // console.log(this.props.auth0.user);
-    // console.log(this.props.auth0.user.email);
-    // console.log('Music: ', this.state.music);
-
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
         <MainCard
@@ -157,7 +92,7 @@ class Main extends React.Component {
     })
 
 
-/*    let gameResults = this.state.steamAPI.map((query, index)=>{
+    let gameResults = this.state.gameAPI.map((query, index)=>{
       return (
         <GameCard
           key={index}
@@ -165,40 +100,24 @@ class Main extends React.Component {
           postGame={this.postGame}
           auth0Email={this.props.auth0.user.email} />
       );
-    }) */
+    }) 
 
-
-    // let addedSongs = this.state.music.map((dbSongs, idx) => {
-    //   return ( 
-    //   // <Container key={idx}>
-
-    //   // </Container>
-    //   <ul key={idx}>
-    //     <li>{dbSongs.artistName}</li>
-    //   </ul>
-
-
-
-    //   );
-    // })
-
-    // console.log('Query: ', this.state.query);
     return (
       <>
         <Container>
           <SearchBar 
           getItunesData={this.getItunesData}
           handleMusicInput={this.handleMusicInput} 
-          // getSteamData={this.getSteamData}
+          getGameData={this.getGameData}
           />  
         </Container>
 
         <Container>
           <main>
-            {allResults}            
+            {allResults} 
+            {gameResults}           
           </main>
         </Container>
-        {/* <UserProfile music={this.state.music}/> */}
       </>
     )
 

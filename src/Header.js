@@ -6,18 +6,13 @@ import LogoutButton from './LogoutButton';
 import { withAuth0 } from '@auth0/auth0-react';
 import './Header.css';
 
-// Button, Container, NavDropdown, Nav
-// import { Component } from "react";
-
-
 
 class Header extends React.Component {
 
   render() {
-
     return (
-      <Navbar   className="head-nav" /* collapseOnSelect expand="lg" bg="dark" variant="dark"*/>
-        <Navbar.Brand className='head-title'>My Favorite Music</Navbar.Brand>
+      <Navbar   className="head-nav">
+        <Navbar.Brand className='head-title'>Welcome to Your Space!</Navbar.Brand>
         {this.props.auth0.isAuthenticated
           ? (
           <>
@@ -25,9 +20,9 @@ class Header extends React.Component {
         <NavItem>
           <Link to='/UserProfile' className='nav-link'>Your Music</Link>
         </NavItem>
-        {/* <NavItem>
+        <NavItem>
           <Link to='/GameProfile' className='nav-link'>Your Games</Link>
-        </NavItem> */}
+        </NavItem>
         <NavItem>
         <Link to='/OurTeam' className='nav-link'>Our Team</Link>
         </NavItem>      

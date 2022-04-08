@@ -9,3 +9,14 @@
   font-family: 'Yellowtail', cursive;
   font-size: 5em;
 }
+
+.foot-link {
+  color: black;
+  font-weight: bolder;
+  font-family: 'Yellowtail', cursive;
+  align-items: right;
+}
+
+.foot-link:hover {
+  color: white;
+}

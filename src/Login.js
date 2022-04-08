@@ -2,14 +2,15 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import LoginButton from './LoginButton';
 import './Button.css'
-import { withAuth0 } from '@auth0/auth0-react'; // IS THIS USE OR WITH FOR AUTH0
+import { withAuth0 } from '@auth0/auth0-react'; 
+import './LoginButton.css'; 
 
 class Login extends React.Component {
   render() {
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card className="login-div">
         <Card.Body>
-          <Card.Title>Log In</Card.Title>
+          <Card.Title className="login-title">Log In</Card.Title>
           <Card.Text>
             Click Below to Log In
           </Card.Text>
@@ -23,4 +24,4 @@ class Login extends React.Component {
   };
 };
 
-export default withAuth0(Login); // withAuth0 SAME WITH RIGHT HERE
+export default withAuth0(Login);

@@ -1,0 +1,20 @@
+.login-div {
+ margin-left: 30vw;
+ margin-top: 30vh;
+ margin-bottom: 35vh;
+ width: 40vw;
+ height: 50vh;
+ text-align: center;
+ font-size: 50px;
+ padding-top: 10vh;
+ font-family: 'Yellowtail', cursive;
+ box-shadow: 0.7vw 0.3vw 0.3vw #6d0359;
+ border-radius: 30px;
+ background: linear-gradient(#90DBF4, #F1C0E8, #FBF8CC );
+}
+
+.login-title {
+  font-size: 60px;
+  font-family: 'Yellowtail', cursive;
+}
+
