@@ -19,9 +19,8 @@ class GameCard extends React.Component {
 
   render() {
     return (
-      <div className="cards">
         <Card className="individual-card" style={{ width: '18rem' }}>
-          <Card.Body>
+          <Card.Body className="real-card-body">
             <Card.Title> {this.props.query.title}</Card.Title>
             <Button className="rainbow-button" variant="primary" onClick={this.handleGameLibrary}>Add To Profile</Button>
             <Card.Text>
@@ -41,7 +40,6 @@ class GameCard extends React.Component {
             </Card.Text>
           </Card.Body>
         </Card>
-      </div>
     )
 
   }
