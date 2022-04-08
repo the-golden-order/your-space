@@ -16,7 +16,7 @@ class Main extends React.Component {
       music: [],
       itunesAPI: [],
       query: '',
-      games: [],
+      game: [],
       gameAPI: [],
       showModal: false,
       auth0Email: this.props.auth0.user.email
@@ -46,7 +46,7 @@ class Main extends React.Component {
     try {
       let results = await axios.post(`${SERVER}/game`, newGame);
       this.setState({
-        games: [...this.state.games, results.data]
+        game: [...this.state.game, results.data]
       });
     } catch (error) {
       console.error('error', error.response);
