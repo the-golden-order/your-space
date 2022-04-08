@@ -81,8 +81,6 @@ class Main extends React.Component {
 
 
   render() {
-
-
     let allResults = this.state.itunesAPI.map((query, index) => {
       return (
         <MainCard
@@ -103,6 +101,7 @@ class Main extends React.Component {
           auth0Email={this.props.auth0.user.email} />
       );
     }) 
+
     return (
       <>
         <Container>

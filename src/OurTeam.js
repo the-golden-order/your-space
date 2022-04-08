@@ -46,18 +46,17 @@ class OurTeam extends React.Component {
             <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ryan-m-369b50132/">LinkedIn Profile</Button>
           </CarouselItem>
           <CarouselItem>
-            <h2> Thomas Basham </h2>
+          <h2> Thomas Basham </h2>
             <h3> Full-Stack Software Developer </h3>
-            <p>👽👽greetings👽👽 I'm A full-stack dev based in the Seattle area. I spend most of my free time creating things! I like producing 🎶music🎵, making digital 🎨art🖌, 🌱growing plants🪴 and spending time 🏔outdoors🌄 to get my mind right🧘‍♂️. Before learning software development I was in the Army, and when I wasn't a soldier, I was a 🛠carpenter🛠.  </p>
+            <p>👽👽greetings👽👽 I'm A full-stack dev based in the Seattle area. I spend most of my free time creating things! I like producing 🎶music🎵, making digital 🎨art🖌, 🌱growing plants🪴 and spending time 🏔outdoors🌄 to get my mind right🧘‍♂️. Before learning software development I was in the Army, and when I wasn't a soldier, I was a 🛠carpenter🪚.  </p>
             <img
-              className="ourTeamImg"
-              src={Thomas}
-              alt="Thomas in Afghanistan"
+            className="ourTeamImg"
+            src={Thomas}
+            alt="Thomas in Afghanistan"
             />
             <Button className="carousel-button" href="https://github.com/bashamtg">GitHub Profile</Button>
 
-            <Button className="carousel-button" href="https://www.linkedin.com/in/thomas-basham/" >LinkedIn Profile</Button>
-
+            <Button className="carousel-button" href="https://www.linkedin.com/in/thomas-basham/" >LinkedIn Profile</Button> 
           </CarouselItem>
           <CarouselItem>
             <h2> Roger Wells </h2>
@@ -66,6 +65,7 @@ class OurTeam extends React.Component {
             <img
             className="ourTeamImg"
             src={Roger}
+
             alt="Roger on a bicycle"
             />
             <Button className="carousel-button" href="https://github.com/rsw359">GitHub Profile</Button>
