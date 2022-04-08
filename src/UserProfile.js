@@ -2,7 +2,8 @@ import React from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Card, Container, Button, Modal, Form } from "react-bootstrap";
 import axios from "axios";
-import './MainCard.css'
+import './MainCard.css';
+import './Button.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
 
@@ -128,9 +129,8 @@ class UserProfile extends React.Component {
       return (
         this.props.auth0.user.email === query.email 
         ?
-        <div className="cards" key={query._id}>
-          <Card className="individual-card" style={{ width: '18rem' }}>
-            <Card.Body>
+          <Card className="individual-card" key={query._id}>
+            <Card.Body className="real-card-body">
               <Card.Title>{query.artistName}</Card.Title>
               <Card.Text>
                 Artist: {query.artistName}
@@ -154,11 +154,12 @@ class UserProfile extends React.Component {
               <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(query._id)}>Delete</Button>
             </Card.Body>
           </Card>
-
           :
           ''
       );
+      
     })
+    
     return (
       <>
         <Container>
