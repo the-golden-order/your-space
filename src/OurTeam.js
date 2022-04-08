@@ -5,7 +5,7 @@ import Eden from './OurTeamPics/picture_for_codle_aboutus.png';
 import Marcus from './OurTeamPics/Marcus.jpeg';
 import Ryan from './OurTeamPics/me.jpeg'
 import Roger from './OurTeamPics/rogger.jpg'
-
+import Thomas from './OurTeamPics/thomasphoto.jpg'
 
 class OurTeam extends React.Component {
   render() {
@@ -44,18 +44,17 @@ class OurTeam extends React.Component {
             <Button className="carousel-button" href="https://www.linkedin.com/in/https://www.linkedin.com/in/ryan-m-369b50132/" >LinkedIn Profile</Button>
           </CarouselItem>
           <CarouselItem>
-            <h2> Thomas Basham </h2>
+          <h2> Thomas Basham </h2>
             <h3> Full-Stack Software Developer </h3>
-            <p>Youll update this later</p>
+            <p>👽👽greetings👽👽 I'm A full-stack dev based in the Seattle area. I spend most of my free time creating things! I like producing 🎶music🎵, making digital 🎨art🖌, 🌱growing plants🪴 and spending time 🏔outdoors🌄 to get my mind right🧘‍♂️. Before learning software development I was in the Army, and when I wasn't a soldier, I was a 🛠carpenter🪚.  </p>
             <img
             className="ourTeamImg"
-            src=""
-            alt=""
+            src={Thomas}
+            alt="Thomas in Afghanistan"
             />
-            <Button className="carousel-button" href="https://github.com/UPDATE ME!!!!!!!!!!!!">GitHub Profile</Button>
+            <Button className="carousel-button" href="https://github.com/bashamtg">GitHub Profile</Button>
 
-            <Button className="carousel-button" href="https://www.linkedin.com/in/ UPDATE ME!!!!!!!!!!!!!!!!!!" >LinkedIn Profile</Button> 
-
+            <Button className="carousel-button" href="https://www.linkedin.com/in/thomas-basham/" >LinkedIn Profile</Button> 
           </CarouselItem>
           <CarouselItem>
             <h2> Roger Wells </h2>
