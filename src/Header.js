@@ -12,7 +12,7 @@ class Header extends React.Component {
   render() {
     return (
       <Navbar   className="head-nav">
-        <Navbar.Brand className='head-title'>My Favorite Music</Navbar.Brand>
+        <Navbar.Brand className='head-title'>Welcome to Your Space!</Navbar.Brand>
         {this.props.auth0.isAuthenticated
           ? (
           <>
