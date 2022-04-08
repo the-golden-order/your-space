@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   logInHandler = (user) => {
-    console.log(user);
+    // console.log(user);
     this.setState({
       user: user
     })
@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 
   emailHandler = (email) => {
-    console.log(email);
+    // console.log(email);
     this.setState({
       email: email
     })
