@@ -3,9 +3,9 @@ import { Carousel, CarouselItem, Button } from 'react-bootstrap';
 import "./OurTeam.css";
 import Eden from './OurTeamPics/picture_for_codle_aboutus.png';
 import Marcus from './OurTeamPics/Marcus.jpeg';
-import Ryan from './OurTeamPics/me.jpeg'
-import Roger from './OurTeamPics/rogger.jpg'
-import Thomas from './OurTeamPics/thomasphoto.jpg'
+import Ryan from './OurTeamPics/me.jpeg';
+import Roger from './OurTeamPics/rogger.jpg';
+import Thomas from './OurTeamPics/thomasphoto.jpg';
 
 class OurTeam extends React.Component {
   render() {
