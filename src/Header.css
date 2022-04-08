@@ -1,0 +1,22 @@
+.head-nav {
+  background: linear-gradient(#90DBF4, #F1C0E8, #FBF8CC);
+  justify-content: center;
+  border-bottom: 2px solid #dad58c;
+}
+
+.head-title {
+  font-weight: bolder;
+  font-size: 40px;
+  font-family: 'Yellowtail', cursive;
+  justify-content: center;
+}
+.nav-link{
+  color:black;
+  border: 2px solid #F1C0E8;
+  border-radius: 10px;
+  font-weight: bold;
+  height: 45px;
+  background: linear-gradient(#F1C0E8, #90DBF4);
+  padding: 10px;
+  margin: 10px;
+}
