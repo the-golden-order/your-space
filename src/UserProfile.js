@@ -90,18 +90,18 @@ class UserProfile extends React.Component {
 
   handleDelete = (e) => {
     e.preventDefault();
-      let deletedCardObject = {
-        trackName: this.state.currentCardObj.trackName,
-        artWork: this.state.currentCardObj.artWork,
-        genre: this.state.currentCardObj.genre,
-        note: this.state.currentCardObj.note,
-        email: this.state.currentCardObj.email,
-        previewUrl: this.state.currentCardObj.previewUrl,
-        _id: this.state.currentCardObj._id,
-        __v: this.state.currentCardObj.__v
-      }
-      // console.log(this.state.currentCardObj);
-      this.deleteMusic(deletedCardObject); 
+    let deletedCardObject = {
+      trackName: this.state.currentCardObj.trackName,
+      artWork: this.state.currentCardObj.artWork,
+      genre: this.state.currentCardObj.genre,
+      note: this.state.currentCardObj.note,
+      email: this.state.currentCardObj.email,
+      previewUrl: this.state.currentCardObj.previewUrl,
+      _id: this.state.currentCardObj._id,
+      __v: this.state.currentCardObj.__v
+    }
+    // console.log(this.state.currentCardObj);
+    this.deleteMusic(deletedCardObject);
   }
 
   deleteMusic = async (id) => {
@@ -143,12 +143,12 @@ class UserProfile extends React.Component {
     let addedSongs = this.state.music.map((query) => {
 
       return (
-        this.props.auth0.user.email === query.email 
-        ?
-        <div className="cards" key={query._id}>
-          <Card className="individual-card" style={{ width: '18rem' }}>
+        this.props.auth0.user.email === query.email
+          ?
+
+          <Card className="individual-card" key={query._id}>
             {/* <Card.Img variant="top" src="{this.state.query.artWork}" /> */}
-            <Card.Body>
+            <Card.Body className="real-card-body">
               <Card.Title>{query.artistName}</Card.Title>
               <Card.Text>
                 {/* {query.note} */}
@@ -159,15 +159,15 @@ class UserProfile extends React.Component {
               <Card.Text>
                 Song: {query.trackName}
               </Card.Text>
-              <Card.Text>
+              <Card.Text className="card-album-art">
                 {/* Album Art: */}
-                <img src={query.artWork} alt="Album artwork" />
+                <img className="card-image" src={query.artWork} alt="Album artwork" />
               </Card.Text>
               <Card.Text>
                 Genre: {query.genre}
               </Card.Text>
-              <Card.Text>
-                Play the Song: <audio controls> <source src={query.previewUrl} type="audio/mpeg" /></audio>
+              <Card.Text style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
+                Play the Song: <audio controls className="audio-controls"> <source src={query.previewUrl} type="audio/mpeg" /></audio>
               </Card.Text>
               <Card.Text>
                 Personal Note: {query.note}
@@ -176,15 +176,17 @@ class UserProfile extends React.Component {
               <Button className="rainbow-button" variant="primary" onClick={() => this.deleteMusic(query._id)}>Delete</Button>
             </Card.Body>
           </Card>
-        </div>
-        :
-        ''
+
+          :
+          ''
       );
     })
     return (
       <>
         <Container>
+          <main>
           {addedSongs}
+          </main>
 
         </Container>
 
